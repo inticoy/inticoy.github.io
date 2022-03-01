@@ -15,7 +15,7 @@ module.exports = {
     bio: {
       role: `개발자`,
       description: ['인생이 즐거운', '다재다능한', '본질을 꿰뚫고 싶은'],
-      thumbnail: 'sample.png', // Path to the image in the 'asset' folder
+      thumbnail: 'inticoy-transparent.png', // Path to the image in the 'asset' folder
     },
     social: {
       github: `https://github.com/inticoy`, // `https://github.com/zoomKoding`,
@@ -44,7 +44,7 @@ module.exports = {
       // ========================================================
       {
         date: '2022.02',
-        activity: '한양대학교 EOS 학술제 Advanced 우승',
+        activity: '한양대학교 EOS 학술제 Advanced 대상',
         links: {
           github: 'https://github.com/penta-trespassers',
           demo: 'https://www.figma.com/proto/wlmYpiATcrL3YwPf5Hy342/Neodoallae-Prototype?node-id=2%3A5&starting-point-node-id=2%3A5&show-proto-sidebar=1',
