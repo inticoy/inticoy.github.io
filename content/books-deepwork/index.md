@@ -1,6 +1,6 @@
 ---
 emoji: 💼
-title: Deepwork를 읽고
+title: '[BOOK] Deepwork를 읽고'
 date: '2021-05-13 23:15:12'
 author: 윤건우
 tags: Books Reviews
@@ -16,7 +16,6 @@ categories: Books
 |옮긴이 | 김태훈 |
 |출판사 | 민음사 |
 
-<br/>
 
 # II. 읽으며 든 생각
 
