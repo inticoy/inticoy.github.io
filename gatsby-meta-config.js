@@ -15,7 +15,7 @@ module.exports = {
     bio: {
       role: `개발자`,
       description: ['인생이 즐거운', '다재다능한', '본질을 꿰뚫고 싶은'],
-      thumbnail: 'inticoy-handwriting.png', // Path to the image in the 'asset' folder
+      thumbnail: 'inticoy-drawing-transparent.png', // Path to the image in the 'asset' folder
     },
     social: {
       github: `https://github.com/inticoy`, // `https://github.com/zoomKoding`,
