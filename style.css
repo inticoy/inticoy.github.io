@@ -1,72 +1,165 @@
 :root {
-  --navigation-color: rgba(0, 0, 0, 0);
+  --main-color: #3c4c55;
+
+  --test-transparent-100: rgba(0, 0, 0, 0);
+  --test-transparent-80: rgba(0, 0, 0, 0.2);
+  --test-transparent-60: rgba(0, 0, 0, 0.4);
+  --test-transparent-40: rgba(0, 0, 0, 0.6);
+  --test-transparent-20: rgba(0, 0, 0, 0.8);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&family=Orbitron:wght@400..900&display=swap");
+
+.material-symbols-rounded {
+  color: var(--main-color);
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 body {
   margin: 0px;
   padding: 0px;
   background-color: lightgrey;
-}
 
-header {
-  height: 240px;
-  background-color: lightblue;
-}
-
-nav {
-  background-color: var(--navigation-color);
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  align-items: center;
-
-  margin: 10px;
-}
-
-.logo {
-  position: absolute;
-  left: 0px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logoImg {
-  width: 48px;
-  height: 48px;
-}
-
-#navBtns {
-  position: relative;
-
-  display: flex;
-  flex-direction: row;
-  gap: 0px;
-  /* justify-content: space-between; */
-  align-items: center;
-  /* gap: 10px; */
-}
-
-.navBtn {
-  list-style: none;
-  margin: 8px;
-}
-
-.etcBtns {
-  position: absolute;
-  right: 0px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .spacer {
   flex-grow: 1;
   visibility: hidden;
+}
+
+nav {
+  /* background-color: var(--test-transparent-80); */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+
+  height: 96px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.button {
+  border-radius: 10px;
+}
+
+.button:hover {
+  background-color: var(--test-transparent-80);
+}
+
+.logo {
+  position: absolute;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+  gap: 16px;
+}
+
+.logo__image {
+  width: 48px;
+  height: 48px;
+}
+
+.logo__text {
+  width: 152px;
+}
+
+.menu {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+
+  padding: 0px;
+}
+
+.menu__button {
+  list-style: none;
+  padding: 12px;
+  font-size: large;
+}
+
+.feature {
+  position: absolute;
+  right: 16px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+}
+
+.feature__button {
+  width: 32px;
+  height: 32px;
+
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.feature__icon {
+  font-size: 32px;
+}
+
+header {
+  height: 400px;
+  background-color: lightblue;
+}
+
+.contents {
+  height: 1000px;
+}
+
+footer {
+  border-top: 0.1px solid var(--test-transparent-80);
+
+  height: 96px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.shortcut {
+  position: absolute;
+  right: 32px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+  align-items: center;
+}
+
+.shortcut__button {
+  width: 24px;
+  height: 24px;
+
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.shortcut__icon {
+  font-size: 24px;
 }

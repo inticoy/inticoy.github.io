@@ -4,31 +4,74 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inticoy</title>
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- navigation bar -->
     <nav>
-      <div class="logo">
-        <img class="logoImg" src="asset/logo_inticoy_lightmode.svg" />
-        <div>Inticoy</div>
+      <div class="logo button">
+        <img class="logo__image" src="asset/logo/logo_inticoy_lightmode.svg" />
+        <img class="logo__text" src="asset/logo/logo_inticoy_text.svg" />
       </div>
       <div class="spacer"></div>
-      <ul id="navBtns">
-        <li class="navBtn">Posts</li>
-        <li class="navBtn">Projects</li>
-        <li class="navBtn">Timeline</li>
+      <ul class="menu">
+        <li class="menu__button button">Posts</li>
+        <li class="menu__button button">Projects</li>
+        <li class="menu__button button">Awards</li>
       </ul>
       <div class="spacer"></div>
-      <div id="etcBtns">btns</div>
+      <div class="feature">
+        <div class="feature__button button">
+          <span class="material-symbols-rounded feature__icon">
+            dark_mode
+          </span>
+        </div>
+        <div class="feature__button button">
+          <span class="material-symbols-rounded feature__icon">
+            dark_mode
+          </span>
+        </div>
+        <div class="feature__button button">
+          <span class="material-symbols-rounded feature__icon">
+            dark_mode
+          </span>
+        </div>
+      </div>
     </nav>
-    <header>header image</header>
-    <h1>Hello, world!</h1>
-    <footer>bye</footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- header -->
+    <header>
+      <p>image here</p>
+    </header>
+
+    <!-- contents -->
+    <div class="contents">
+      <h1>Contents</h1>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="logo button">
+        <img class="logo__image" src="asset/logo/logo_inticoy_lightmode.svg" />
+        <img class="logo__text" src="asset/logo/logo_inticoy_text.svg" />
+      </div>
+      <div class="spacer"></div>
+      <div>©️ 2024. 윤건우. All rights reserved.</div>
+      <div class="spacer"></div>
+      <div class="shortcut">
+        <div class="shortcut__button button">
+          <img src="asset/icon/github-mark/github-mark.svg" alt="GitHub Icon" />
+        </div>
+        <div class="shortcut__button button">
+          <span class="material-symbols-rounded shortcut__icon"> mail </span>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
