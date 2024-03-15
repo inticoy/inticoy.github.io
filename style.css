@@ -51,6 +51,7 @@ nav {
 
 .button {
   border-radius: 10px;
+  transition: 0.5s;
 }
 
 .button:hover {
