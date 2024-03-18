@@ -20,26 +20,14 @@
       </div>
       <div class="spacer"></div>
       <ul class="menu">
+        <li class="menu__button button">About</li>
         <li class="menu__button button">Posts</li>
         <li class="menu__button button">Projects</li>
-        <li class="menu__button button">Awards</li>
       </ul>
       <div class="spacer"></div>
       <div class="feature">
         <div class="feature__button button">
-          <span class="material-symbols-rounded feature__icon">
-            dark_mode
-          </span>
-        </div>
-        <div class="feature__button button">
-          <span class="material-symbols-rounded feature__icon">
-            dark_mode
-          </span>
-        </div>
-        <div class="feature__button button">
-          <span class="material-symbols-rounded feature__icon">
-            dark_mode
-          </span>
+          <span class="material-symbols-rounded feature__icon"> search </span>
         </div>
       </div>
     </nav>
@@ -52,6 +40,28 @@
     <!-- contents -->
     <div class="contents">
       <h1>Contents</h1>
+      <!-- <zero-md src="./test.md"></zero-md> -->
+      <div id="content"></div>
+      <script src="marked.js"></script>
+      <script>
+        document.getElementById("content").innerHTML = marked(
+          "# Marked in browser\n\nRendered by **marked**." +
+            "\n\n![hi](asset/logo/logo_inticoy_darkmode.svg)\n\n```c\nint a = b;```\n\n`a` is a "
+        );
+      </script>
+      <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+      <pre class="prettyprint">class Voila {
+      public:
+        // Voila
+        static const string VOILA = "Voila";
+      
+        // will not interfere with embedded <a href="#voila2">tags</a>.
+      }
+      </pre>
+
+      <pre class="prettyprint lang-LaTex">
+        int a = b;
+      </pre>
     </div>
 
     <!-- footer -->
@@ -61,14 +71,20 @@
         <img class="logo__text" src="asset/logo/logo_inticoy_text.svg" />
       </div>
       <div class="spacer"></div>
-      <div>©️ 2024. 윤건우. All rights reserved.</div>
+      <div>INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED</div>
       <div class="spacer"></div>
-      <div class="shortcut">
-        <div class="shortcut__button button">
-          <img src="asset/icon/github-mark/github-mark.svg" alt="GitHub Icon" />
+      <div class="feature">
+        <div class="feature__button button">
+          <img
+            class="feature__icon"
+            src="asset/icon/github-mark/github-mark.svg"
+            alt="GitHub Icon"
+          />
         </div>
-        <div class="shortcut__button button">
-          <span class="material-symbols-rounded shortcut__icon"> mail </span>
+        <div class="feature__button button">
+          <span class="material-symbols-rounded feature__icon">
+            dark_mode
+          </span>
         </div>
       </div>
     </footer>
