@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inticoy</title>
+    <!-- Google Noto Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <!-- Google Material Icons -->
     <link
       rel="stylesheet"
@@ -40,15 +47,9 @@
     <!-- contents -->
     <div class="contents">
       <h1>Contents</h1>
-      <!-- <zero-md src="./test.md"></zero-md> -->
       <div id="content"></div>
       <script src="marked.js"></script>
-      <script>
-        document.getElementById("content").innerHTML = marked(
-          "# Marked in browser\n\nRendered by **marked**." +
-            "\n\n![hi](asset/logo/logo_inticoy_darkmode.svg)\n\n```c\nint a = b;```\n\n`a` is a "
-        );
-      </script>
+      <script src="script.js"></script>
       <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
       <pre class="prettyprint">class Voila {
       public:
