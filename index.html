@@ -17,6 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="https://inticoy.github.io/style.css" /> -->
   </head>
   <body>
     <!-- navigation bar -->
@@ -41,37 +42,20 @@
 
     <!-- header -->
     <header>
-      <div>
-        <div>hi</div>
-        <div>hi</div>
-        <div>hi</div>
-        <div>hi</div>
-        <div>hi</div>
-        <div>hi</div>
-        <div>hi</div>
+      <div class="header__container">
+        <img class="header_image" src="asset/logo/logo_inticoy_lightmode.svg" />
+        <div class="header__info">
+          <div class="header__title">Title</div>
+          <div class="header__date">2024.03.01</div>
+        </div>
       </div>
-      <div>hi</div>
     </header>
 
     <!-- contents -->
     <div class="contents">
-      <h1>Contents</h1>
-      <div id="content"></div>
-      <script src="marked.js"></script>
-      <script src="script.js"></script>
-      <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-      <pre class="prettyprint">class Voila {
-      public:
-        // Voila
-        static const string VOILA = "Voila";
-      
-        // will not interfere with embedded <a href="#voila2">tags</a>.
-      }
-      </pre>
-
-      <pre class="prettyprint lang-LaTex">
-        int a = b;
-      </pre>
+      <div class="contents__container">
+        <div id="content"></div>
+      </div>
     </div>
 
     <!-- footer -->
@@ -98,6 +82,7 @@
         </div>
       </div>
     </footer>
+    <script src="marked.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
