@@ -16,12 +16,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="stylesheet" href="https://inticoy.github.io/style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <!-- navigation bar -->
     <nav>
-      <div class="logo button">
+      <div class="logo button" OnClick="location.href ='/'">
         <img
           class="logo__image"
           src="https://inticoy.github.io/asset/logo/logo_inticoy_lightmode.svg"
@@ -33,9 +33,15 @@
       </div>
       <div class="spacer"></div>
       <ul class="menu">
-        <li class="menu__button button">About</li>
-        <li class="menu__button button">Posts</li>
-        <li class="menu__button button">Projects</li>
+        <li class="menu__button button" OnClick="location.href ='/about'">
+          <a>About</a>
+        </li>
+        <li class="menu__button button" OnClick="location.href ='/posts'">
+          <a>Posts</a>
+        </li>
+        <li class="menu__button button" OnClick="location.href ='/projects'">
+          <a>Projects</a>
+        </li>
       </ul>
       <div class="spacer"></div>
       <div class="feature">
@@ -53,8 +59,8 @@
           src="https://inticoy.github.io/asset/logo/logo_inticoy_lightmode.svg"
         />
         <div class="header__info">
-          <div class="header__title">Title</div>
-          <div class="header__date">2024.03.01</div>
+          <div id="header__title" class="header__title"></div>
+          <div id="header__date" class="header__date"></div>
         </div>
       </div>
     </header>
@@ -68,7 +74,7 @@
 
     <!-- footer -->
     <footer>
-      <div class="logo button">
+      <div class="logo button" OnClick="location.href ='/projects'">
         <img
           class="logo__image"
           src="https://inticoy.github.io/asset/logo/logo_inticoy_lightmode.svg"
@@ -82,7 +88,10 @@
       <div>INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED</div>
       <div class="spacer"></div>
       <div class="feature">
-        <div class="feature__button button">
+        <div
+          class="feature__button button"
+          OnClick="location.href ='https://github.com/inticoy'"
+        >
           <img
             class="feature__icon"
             src="https://inticoy.github.io/asset/icon/github-mark/github-mark.svg"
