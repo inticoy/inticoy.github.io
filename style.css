@@ -156,11 +156,10 @@ nav {
 }
 
 header {
-  margin: 56px;
   height: 400px;
   width: 100%;
   color: black;
-  background-color: lightblue;
+  background-color: var(--main-color-15);
 }
 
 .contents {
@@ -172,6 +171,7 @@ header {
 footer {
   border-top: 0.1px solid var(--test-transparent-80);
 
+  font-size: 12px;
   height: 56px;
   width: 100%;
   display: flex;
