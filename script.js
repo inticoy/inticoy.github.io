@@ -1,4 +1,10 @@
-document.getElementById("content").innerHTML = marked(
-  "# Marked in browser\n\nRendered by **marked**." +
-    "\n\n![hi](asset/logo/logo_inticoy_darkmode.svg)\n\n```c\nint a = b;```\n\n`a` is a "
-);
+document.getElementById("header__title").innerHTML =
+  "Welcome to Inticoy's Blog";
+document.getElementById("header__date").innerHTML = "2024.03.01";
+
+fetch("README.md")
+  .then((res) => res.text())
+  .then((text) => {
+    document.getElementById("content").innerHTML = marked(text);
+  })
+  .catch((e) => console.error(e));

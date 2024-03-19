@@ -209,6 +209,8 @@ header {
 .contents {
   margin: 56px 0px;
   width: 768px;
+
+  overflow: hidden;
 }
 
 footer {
