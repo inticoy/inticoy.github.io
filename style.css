@@ -247,6 +247,12 @@ header {
   overflow: hidden;
 }
 
+#content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 footer {
   height: 56px;
   width: 100%;
