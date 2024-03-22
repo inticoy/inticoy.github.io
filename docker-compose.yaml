@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  django:
+    image: inticoy/blog
+    container_name: inticoy-blog
+    build: .
+    ports:
+      - "8000:80"
+    restart: always
