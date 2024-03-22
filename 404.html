@@ -1,12 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>404</title>
-    <script type="text/javascript" src="/src/ghspa.js"></script>
+    <!-- Google Noto Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <script type="text/javascript" src="/src/scripts/lib/ghspa.js"></script>
   </head>
-
   <body>
-    404
+    <!-- navigation bar -->
+    <nav>
+      <div class="logo button" OnClick="location.href ='/'">
+        <img class="logo__image" src="/asset/logo/logo_inticoy_lightmode.svg" />
+        <img class="logo__text" src="/asset/logo/logo_inticoy_text.svg" />
+      </div>
+      <div class="spacer"></div>
+      <ul class="menu">
+        <li class="menu__button button" OnClick="location.href ='/about'">
+          <a>About</a>
+        </li>
+        <li class="menu__button button" OnClick="location.href ='/posts'">
+          <a>Posts</a>
+        </li>
+        <li class="menu__button button" OnClick="location.href ='/projects'">
+          <a>Projects</a>
+        </li>
+      </ul>
+      <div class="spacer"></div>
+      <div class="feature">
+        <div class="feature__button button" OnClick="location.href ='/search'">
+          <span class="material-symbols-rounded feature__icon"> search </span>
+        </div>
+      </div>
+    </nav>
+    <!-- header -->
+    <header>
+      <div class="header__container">
+        <img
+          class="header_image"
+          src="/asset/logo/logo_inticoy_lightmode.svg"
+        />
+        <div class="header__info">
+          <div id="header__title" class="header__title"></div>
+          <div id="header__date" class="header__date"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- contents -->
+    <div class="contents">
+      <div class="contents__container">
+        <div id="content"></div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div class="logo button" OnClick="location.href ='/projects'">
+        <img class="logo__image" src="/asset/logo/logo_inticoy_lightmode.svg" />
+        <img class="logo__text" src="/asset/logo/logo_inticoy_text.svg" />
+      </div>
+      <div class="spacer"></div>
+      <div>INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED</div>
+      <div class="spacer"></div>
+      <div class="feature">
+        <div
+          class="feature__button button"
+          OnClick="location.href ='https://github.com/inticoy'"
+        >
+          <img
+            class="feature__icon"
+            src="/asset/icon/github-mark/github-mark.svg"
+            alt="GitHub Icon"
+          />
+        </div>
+        <div class="feature__button button">
+          <span class="material-symbols-rounded feature__icon">
+            dark_mode
+          </span>
+        </div>
+      </div>
+    </footer>
+    <script src="/src/scripts/lib/marked.js"></script>
+    <script src="/src/scripts/app.js"></script>
   </body>
 </html>

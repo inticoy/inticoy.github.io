@@ -16,21 +16,15 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="stylesheet" href="/style.css" />
-    <script type="text/javascript" src="/src/ghspa.js"></script>
+    <link rel="stylesheet" href="/src/styles/style.css" />
+    <script type="text/javascript" src="/src/scripts/lib/ghspa.js"></script>
   </head>
   <body>
     <!-- navigation bar -->
     <nav>
       <div class="logo button" OnClick="location.href ='/'">
-        <img
-          class="logo__image"
-          src="https://inticoy.github.io/asset/logo/logo_inticoy_lightmode.svg"
-        />
-        <img
-          class="logo__text"
-          src="https://inticoy.github.io/asset/logo/logo_inticoy_text.svg"
-        />
+        <img class="logo__image" src="/asset/logo/logo_inticoy_lightmode.svg" />
+        <img class="logo__text" src="/asset/logo/logo_inticoy_text.svg" />
       </div>
       <div class="spacer"></div>
       <ul class="menu">
@@ -51,13 +45,12 @@
         </div>
       </div>
     </nav>
-
     <!-- header -->
     <header>
       <div class="header__container">
         <img
           class="header_image"
-          src="https://inticoy.github.io/asset/logo/logo_inticoy_lightmode.svg"
+          src="/asset/logo/logo_inticoy_lightmode.svg"
         />
         <div class="header__info">
           <div id="header__title" class="header__title"></div>
@@ -76,14 +69,8 @@
     <!-- footer -->
     <footer>
       <div class="logo button" OnClick="location.href ='/projects'">
-        <img
-          class="logo__image"
-          src="https://inticoy.github.io/asset/logo/logo_inticoy_lightmode.svg"
-        />
-        <img
-          class="logo__text"
-          src="https://inticoy.github.io/asset/logo/logo_inticoy_text.svg"
-        />
+        <img class="logo__image" src="/asset/logo/logo_inticoy_lightmode.svg" />
+        <img class="logo__text" src="/asset/logo/logo_inticoy_text.svg" />
       </div>
       <div class="spacer"></div>
       <div>INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED</div>
@@ -95,7 +82,7 @@
         >
           <img
             class="feature__icon"
-            src="https://inticoy.github.io/asset/icon/github-mark/github-mark.svg"
+            src="/asset/icon/github-mark/github-mark.svg"
             alt="GitHub Icon"
           />
         </div>
@@ -106,7 +93,7 @@
         </div>
       </div>
     </footer>
-    <script src="https://inticoy.github.io/marked.js"></script>
-    <script src="/src/script.js"></script>
+    <script src="/src/scripts/lib/marked.js"></script>
+    <script type="module" src="/src/scripts/app.js"></script>
   </body>
 </html>

@@ -23,9 +23,9 @@ def save_structure_as_json(structure, output_file):
     with open(output_file, 'w') as f:
         json.dump(structure, f, indent=4)
 
-base_path = './contents'
+base_path = './content'
 
-output_file = './contents/contents.json'
+output_file = './content/contents.json'
 
 directory_structure = list_files_in_directories(base_path)
 
