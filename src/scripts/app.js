@@ -8,6 +8,7 @@ import { showSearch } from "./view/search.js";
 
 const router = {
   "/": () => showHome(),
+  "/index.html": () => showHome(),
   "/about": () => showAbout(),
   "/posts": () => showPosts(),
   "/post/:id": (id) => showPost(id),

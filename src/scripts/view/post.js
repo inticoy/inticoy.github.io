@@ -1,11 +1,15 @@
 export function showPost(id) {
   // 예시를 위해 정적 데이터 사용; 실제 구현에서는 이곳에서 API 호출 등을 할 수 있습니다.
   document.getElementById(
-    "app"
+    "content"
   ).innerHTML = `<h1>Post ${id}</h1><p>Post content for post ${id}...</p>`;
 }
 
-export function showPosts() {}
+export function showPosts() {
+  document.getElementById(
+    "content"
+  ).innerHTML = `<h1>Posts</h1><p>Post content for post ..</p>`;
+}
 
 // var dirStructure;
 // var categories = [];
