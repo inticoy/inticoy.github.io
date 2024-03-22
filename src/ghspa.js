@@ -23,7 +23,6 @@
 
   /* redirect all 404 trafic to index.html */
   function redirect() {
-    console.log("redirect");
     l.replace(
       l.protocol +
         "//" +
@@ -41,7 +40,6 @@
 
   /* resolve 404 redirects into internal routes */
   function resolve() {
-    console.log("resolve");
     if (l.search) {
       var q = {};
       l.search
@@ -63,4 +61,4 @@
 
   /* if current document is 404 page page, redirect to index.html otherwise resolve */
   document.title === "404" ? redirect() : resolve();
-})(window.location, window.projectPages || true);
+})(window.location, window.projectPages || false);
