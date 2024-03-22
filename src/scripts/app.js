@@ -2,7 +2,6 @@ import { showErrorPage404 } from "./view/errorPage.js";
 import { showHome } from "./view/home.js";
 import { showAbout } from "./view/about.js";
 import { showPosts } from "./view/post.js";
-import { showPost } from "./view/post.js";
 import { showProjects } from "./view/project.js";
 import { showSearch } from "./view/search.js";
 
@@ -11,7 +10,8 @@ const router = {
   "/index.html": () => showHome(),
   "/about": () => showAbout(),
   "/posts": () => showPosts(),
-  "/post/:id": (id) => showPost(id),
+  "/posts/:category": (category) => showPosts(category),
+  "/posts/:category/:id": (category, id) => showPosts(category, id),
   "/projects": () => showProjects(),
   "/search": () => showSearch(),
 };
