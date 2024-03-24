@@ -14,7 +14,7 @@ def list_files_in_directories(base_path):
     
     for category, category_path in categories:
         if os.path.isdir(category_path):
-            files = [{"title": f, "date": f[:10], "category":category, "path":os.path.join(category_path, f)} for f in os.listdir(category_path) if os.path.isfile(os.path.join(category_path, f))]
+            files = [{"title": f[11:], "date": f[:10], "category":category, "path":os.path.join(category_path, f)} for f in os.listdir(category_path) if os.path.isfile(os.path.join(category_path, f))]
             # files.sort()
             directory_structure[category] = files
     

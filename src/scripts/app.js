@@ -11,7 +11,13 @@ const router = {
   "/about": () => showAbout(),
   "/posts": () => showPosts(),
   "/posts/:category": (category) => showPosts(category),
-  "/posts/:category/:id": (category, id) => showPosts(category, id),
+  "/posts/:category/:year/:month/:day/:title": (
+    category,
+    year,
+    month,
+    day,
+    title
+  ) => showPosts(category, year, month, day, title),
   "/projects": () => showProjects(),
   "/search": () => showSearch(),
 };

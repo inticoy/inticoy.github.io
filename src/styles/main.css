@@ -1,7 +1,10 @@
 @import url("/src/styles/base/variables.css");
+
 @import url("/src/styles/component/button.css");
-@import url("/src/styles/component/logo.css");
 @import url("/src/styles/component/code.css");
+@import url("/src/styles/component/list.css");
+@import url("/src/styles/component/logo.css");
+
 @import url("/src/styles/layout/nav.css");
 @import url("/src/styles/layout/header.css");
 @import url("/src/styles/layout/section.css");
