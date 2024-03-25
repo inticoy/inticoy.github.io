@@ -37,8 +37,7 @@ function jsonToList(dirStructure) {
     item.appendChild(title);
     item.appendChild(date);
     item.appendChild(category);
-    list.appendChild(item);
-    list.addEventListener(
+    item.addEventListener(
       "click",
       () => {
         const temp = new Date(e["date"]);
@@ -47,15 +46,16 @@ function jsonToList(dirStructure) {
           e["category"] +
           "/" +
           temp.getFullYear() +
-          "/" +
-          (temp.getMonth() + 1) +
-          "/" +
-          temp.getDay() +
-          "/" +
+          "-" +
+          (temp.getMonth() + 1).toString().padStart(2, "0") +
+          "-" +
+          temp.getDate().toString().padStart(2, "0") +
+          "-" +
           e["title"].slice(0, -3);
       },
       false
     );
+    list.appendChild(item);
   }
   content.appendChild(list);
 }
@@ -75,31 +75,15 @@ function showPostsListOf(category) {
   ).innerHTML = `<h1>Post ${category}</h1><p>Post content for post ${category} category</p>`;
 }
 
-function showPost(category, year, month, day, title) {
+function showPost(category, title) {
   content.innerHTML = "";
 
-  fetch(
-    "/content" +
-      "/" +
-      category +
-      "/" +
-      year +
-      "-" +
-      month +
-      "-" +
-      day +
-      " " +
-      title +
-      ".md"
-  )
-    .then((res) => res.text())
+  fetch("/content" + "/" + category + "/" + title + ".md")
+    .then((response) => response.text())
     .then((text) => {
       content.innerHTML = marked(text);
     })
     .catch((e) => console.error(e));
-  // document.getElementById(
-  //   "content"
-  // ).innerHTML = `<h1>Post ${id}</h1><p>Post content for post ${id}... in ${category}</p>`;
 }
 export function showPosts(...args) {
   if (args.length === 0) {
@@ -107,8 +91,8 @@ export function showPosts(...args) {
   } else if (args.length === 1) {
     const [category] = args;
     showPostsListOf(category);
-  } else if (args.length === 5) {
-    const [category, year, month, day, title] = args;
-    showPost(category, year, month, day, title);
+  } else if (args.length === 2) {
+    const [category, title] = args;
+    showPost(category, title);
   }
 }

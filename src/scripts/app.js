@@ -11,13 +11,7 @@ const router = {
   "/about": () => showAbout(),
   "/posts": () => showPosts(),
   "/posts/:category": (category) => showPosts(category),
-  "/posts/:category/:year/:month/:day/:title": (
-    category,
-    year,
-    month,
-    day,
-    title
-  ) => showPosts(category, year, month, day, title),
+  "/posts/:category/:title": (category, title) => showPosts(category, title),
   "/projects": () => showProjects(),
   "/search": () => showSearch(),
 };
@@ -29,12 +23,14 @@ function navigate(path) {
 
 function route() {
   const path = window.location.pathname;
+  // Replace "\\w+" with "[^/]+" to match any character except "/"
+  // This will allow the capture of segments with hyphens
   const route = Object.keys(router).find((r) =>
-    path.match(new RegExp("^" + r.replace(/:\w+/g, "\\w+") + "$"))
+    path.match(new RegExp("^" + r.replace(/:\w+/g, "[^/]+") + "$"))
   );
 
   if (route) {
-    const match = path.match(new RegExp(route.replace(/:\w+/g, "(\\w+)")));
+    const match = path.match(new RegExp(route.replace(/:\w+/g, "([^/]+)")));
     const args = match ? match.slice(1) : null; // Capture groups로부터 인자 추출
     router[route].apply(null, args);
   } else {

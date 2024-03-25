@@ -1,60 +1,72 @@
 {
     "42seoul": [
         {
-            "title": "42seoul.md",
-            "date": "2022-11-13",
-            "category": "42seoul",
-            "path": "./content/42seoul/2022-11-13 42seoul.md"
-        },
+            "date": "2022-11-13", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2022-11-13-42seoul.md", 
+            "title": "42seoul.md"
+        }, 
         {
-            "title": "libft.md",
-            "date": "2022-11-15",
-            "category": "42seoul",
-            "path": "./content/42seoul/2022-11-15 libft.md"
-        },
+            "date": "2022-11-15", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2022-11-15-libft.md", 
+            "title": "libft.md"
+        }, 
         {
-            "title": "Philosopher.md",
-            "date": "2023-03-08",
-            "category": "42seoul",
-            "path": "./content/42seoul/2023-03-08 Philosopher.md"
-        },
+            "date": "2023-03-08", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2023-03-08-Philosopher.md", 
+            "title": "Philosopher.md"
+        }, 
         {
-            "title": "Runderland.md",
-            "date": "2023-08-30",
-            "category": "42seoul",
-            "path": "./content/42seoul/2023-08-30 Runderland.md"
-        },
+            "date": "2023-08-30", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2023-08-30-Runderland.md", 
+            "title": "Runderland.md"
+        }, 
         {
-            "title": "VirtualKeyword.md",
-            "date": "2023-09-09",
-            "category": "42seoul",
-            "path": "./content/42seoul/2023-09-09 VirtualKeyword.md"
-        },
+            "date": "2023-09-09", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2023-09-09-VirtualKeyword.md", 
+            "title": "VirtualKeyword.md"
+        }, 
         {
-            "title": "Inception.md",
-            "date": "2024-02-11",
-            "category": "42seoul",
-            "path": "./content/42seoul/2024-02-11 Inception.md"
-        },
+            "date": "2024-02-11", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2024-02-11-Inception.md", 
+            "title": "Inception.md"
+        }, 
         {
-            "title": "Webserv.md",
-            "date": "2024-03-08",
-            "category": "42seoul",
-            "path": "./content/42seoul/2024-03-08 Webserv.md"
+            "date": "2024-03-08", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2024-03-08-Webserv.md", 
+            "title": "Webserv.md"
+        }, 
+        {
+            "date": "2024-03-25", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2024-03-25-1.md", 
+            "title": "1.md"
+        }, 
+        {
+            "date": "2024-03-25", 
+            "category": "42seoul", 
+            "path": "./content/42seoul/2024-03-25-hello my name is yun.md", 
+            "title": "hello my name is yun.md"
         }
-    ],
+    ], 
     "back": [
         {
-            "title": "getting-started.md",
-            "date": "2019-08-09",
-            "category": "back",
-            "path": "./content/back/2019-08-09 getting-started.md"
-        },
+            "date": "2019-08-09", 
+            "category": "back", 
+            "path": "./content/back/2019-08-09-getting-started.md", 
+            "title": "getting-started.md"
+        }, 
         {
-            "title": "sleep-ai-challenge.md",
-            "date": "2022-12-07",
-            "category": "back",
-            "path": "./content/back/2022-12-07 sleep-ai-challenge.md"
+            "date": "2022-12-07", 
+            "category": "back", 
+            "path": "./content/back/2022-12-07-sleep-ai-challenge \u110b\u1161\u11ab\u1102\u1167\u11bc.md", 
+            "title": "sleep-ai-challenge \u110b\u1161\u11ab\u1102\u1167\u11bc.md"
         }
     ]
 }
