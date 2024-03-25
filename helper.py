@@ -34,11 +34,12 @@ def push_changes():
         categories.append([item, os.path.join(base_path, item)])
     
     categories.sort()
-    print(categories)
     
     for category, category_path in categories:
         if os.path.isdir(category_path):
             files = [{"title": f[11:], "date": f[:10], "category":category, "path":os.path.join(category_path, f)} for f in os.listdir(category_path) if os.path.isfile(os.path.join(category_path, f))]
+            if len(files):
+              print(files[0]["category"] + "/" + files[0]["title"])
             # files.sort()
             directory_structure[category] = files
     
