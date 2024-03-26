@@ -34,14 +34,21 @@ def push_changes():
         categories.append([item, os.path.join(base_path, item)])
     
     categories.sort()
+
+    total_len = 0
     
     for category, category_path in categories:
         if os.path.isdir(category_path):
             files = [{"title": f[11:], "date": f[:10], "category":category, "path":os.path.join(category_path, f)} for f in os.listdir(category_path) if os.path.isfile(os.path.join(category_path, f))]
             if len(files):
-              print(files[0]["category"] + "/" + files[0]["title"])
+                for f in files:
+                    print(f["category"] + "/" + files[0]["title"])
+            total_len += len(files)
             # files.sort()
             directory_structure[category] = files
+
+    print()
+    print("total " + str(total_len) + " posts pushed.")
     
     with open(output_path, 'w') as f:
         json.dump(directory_structure, f, indent=4)
