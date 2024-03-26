@@ -82,3 +82,10 @@ You can jump and smash the enemy Goomba, but if you meet with Goomba at Goomba's
 jump - `W, S`, left - `a`, right - `d`, retry - `r`, quit the game - `esc`
 
 Please Enjoy!
+
+```c
+int main()
+{
+  return 0;
+}
+```

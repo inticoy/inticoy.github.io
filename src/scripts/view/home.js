@@ -7,6 +7,7 @@ export function showHome() {
     .then((res) => res.text())
     .then((text) => {
       document.getElementById("content").innerHTML = marked(text);
+      hljs.highlightAll();
     })
     .catch((e) => console.error(e));
 }

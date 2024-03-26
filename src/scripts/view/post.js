@@ -82,6 +82,7 @@ function showPost(category, title) {
     .then((response) => response.text())
     .then((text) => {
       content.innerHTML = marked(text);
+      hljs.highlightAll();
     })
     .catch((e) => console.error(e));
 }
