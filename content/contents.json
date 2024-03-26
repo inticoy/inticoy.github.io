@@ -1,11 +1,20 @@
 {
     "42seoul": [
         {
-            "title": "born2beroot\u1105\u1169 \u110b\u1161\u11af\u110b\u1161\u1107\u1169\u1102\u1173\u11ab linux.md",
+            "title": "born2beroot\ub85c \uc54c\uc544\ubcf4\ub294 linux.md",
             "date": "2023-01-20",
             "category": "42seoul",
-            "path": "./content/42seoul/2023-01-20-born2beroot\u1105\u1169 \u110b\u1161\u11af\u110b\u1161\u1107\u1169\u1102\u1173\u11ab linux.md"
+            "path": "./content/42seoul/2023-01-20-born2beroot\ub85c \uc54c\uc544\ubcf4\ub294 linux.md"
         }
     ],
-    "back": []
+    "book": [],
+    "front": [
+        {
+            "title": "[UNITHON] \uc720\ub2c8\ud1a4 8\ud68c \ud6c4\uae30.md",
+            "date": "2024-03-25",
+            "category": "front",
+            "path": "./content/front/2024-03-25-[UNITHON] \uc720\ub2c8\ud1a4 8\ud68c \ud6c4\uae30.md"
+        }
+    ],
+    "ps": []
 }
