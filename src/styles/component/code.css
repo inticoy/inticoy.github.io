@@ -8,18 +8,18 @@ code {
 }
 
 pre {
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-  border-left: 3px solid var(--color-main-45);
-  color: #666;
-  page-break-inside: avoid;
-  font-family: monospace;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 1.6em;
-  max-width: 100%;
-  overflow: auto;
-  padding: 1em 1.5em;
-  display: block;
-  word-wrap: break-word;
+  background-color: #f4f4f4;
+  border: 1px solid var(--color-main-30);
+  border-radius: 5px;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.hljs {
+  background: #000000;
+  color: #444;
 }
