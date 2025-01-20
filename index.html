@@ -30,79 +30,269 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <!-- and it's easy to individually load additional languages -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <!-- navigation bar -->
-    <nav>
-      <div class="logo button" OnClick="location.href ='/'">
-        <img class="logo__image" src="/asset/logo/logo_inticoy_lightmode.svg" />
-        <img class="logo__text" src="/asset/logo/logo_inticoy_text.svg" />
+  <body class="">
+    <nav
+      class="h-16 fixed top-0 left-0 right-0 p-8 bg-white/80 backdrop-blur-md flex flex-row space-x-8 items-center border-b border-main-30"
+    >
+      <div
+        class="flex items-center cursor-pointer"
+        onclick="location.href ='/'"
+      >
+        <img
+          class="w-auto h-10"
+          src="/asset/logo/logo_inticoy_lightmode.svg"
+          alt="Logo"
+        />
+        <img
+          class="w-auto h-4 ml-2"
+          src="/asset/logo/logo_inticoy_text.svg"
+          alt="Logo Text"
+        />
       </div>
-      <div class="spacer"></div>
-      <ul class="menu">
-        <li class="menu__button button" OnClick="location.href ='/about'">
+
+      <div class="flex-1"></div>
+
+      <ul class="hidden md:flex flex-row items-center space-x-8">
+        <li class="grow"></li>
+        <li
+          class="text-gray-700 hover:text-blue-500 cursor-pointer"
+          onclick="location.href ='/about'"
+        >
           <a>About</a>
         </li>
-        <li class="menu__button button" OnClick="location.href ='/posts'">
+        <li
+          class="text-gray-700 hover:text-blue-500 cursor-pointer"
+          onclick="location.href ='/posts'"
+        >
           <a>Posts</a>
         </li>
-        <li class="menu__button button" OnClick="location.href ='/projects'">
+        <li
+          class="text-gray-700 hover:text-blue-500 cursor-pointer"
+          onclick="location.href ='/projects'"
+        >
           <a>Projects</a>
         </li>
       </ul>
-      <div class="spacer"></div>
-      <div class="feature">
-        <div class="feature__button button" OnClick="location.href ='/search'">
-          <span class="material-symbols-rounded feature__icon"> search </span>
+
+      <div class="flex items-center space-x-2 cursor-pointer">
+        <span
+          class="w-6 h-6 material-symbols-rounded text-gray-700 hover:text-blue-500"
+          onclick="location.href ='/search'"
+        >
+          search
+        </span>
+        <div id="hamburger-menu" class="md:hidden flex items-center">
+          <span
+            class="text-gray-700 hover:text-blue-500 material-symbols-rounded"
+            >menu</span
+          >
         </div>
       </div>
     </nav>
-    <!-- header -->
+
+    <div
+      id="mobile-menu"
+      class="md:hidden fixed inset-0 bg-white bg-opacity-80 z-50 hidden"
+    >
+      <div class="flex flex-col items-center p-8 space-y-4">
+        <a href="/about" class="text-gray-700">About</a>
+        <a href="/posts" class="text-gray-700">Posts</a>
+        <a href="/projects" class="text-gray-700">Projects</a>
+      </div>
+    </div>
+
     <header>
-      <div class="header__container">
-        <img
-          class="header_image"
-          src="/asset/logo/logo_inticoy_lightmode.svg"
-        />
-        <div class="header__info">
-          <div id="header__title" class="header__title"></div>
-          <div id="header__date" class="header__date"></div>
+      <div class="">
+        <img class="" src="/asset/logo/logo_inticoy_lightmode.svg" />
+        <div class="">
+          <div id="" class=""></div>
+          <div id="" class=""></div>
         </div>
       </div>
     </header>
 
-    <!-- section -->
-    <section>
-      <div id="content"></div>
+    <section class="w-3/4">
+      <!-- CONTENT -->
+      <h1>🖥️ Why Virtual Machine?</h1>
+      <h2>❓ How Virtual Machine works?</h2>
+      <p>
+        Hypervisor가 가상머신이 호스트의 하드웨어를 사용할 수 있게끔 해준다.
+        하지만 Hypervisor 또한 Virtual Box와 같은 프로그램이기 때문에, 호스트의
+        운영체제 상에서 실행되어 가상머신이 요구한 작업이 실행되도록 하고,
+        가상머신 입장에서는 실제로 컴퓨터 하드웨어 상에서 곧바로 실행되는 것처럼
+        인식되도록 한다.
+      </p>
+      <p>
+        쉽게 말해, Virtual Box는 프로그램으로서 Host OS에게 실제 하드웨어를
+        일부분 할당받고, Guest OS가 할당받은 하드웨어를 전부라고 생각하게끔
+        해주는 역할을 한다.
+      </p>
+      <h2>🖥️ Purpose of Virtual Machine</h2>
+      <p>
+        새로운 하드웨어를 장만할 필요 없이 시스템을 구축할 수 있다는 장점이
+        있다. 개인의 관점에서는 맥을 쓰는 사람이 윈도우용 컴퓨터를 추가로 살
+        필요 없이 프로그램처럼 윈도우를 설치해 쓸 수 있기도하고 이를 통해 다른
+        운영체제에서만 사용할 수 있는 프로그램 등을 테스트하는 용도 등으로
+        사용할 수 있다.
+      </p>
+      <p>
+        예시로, Born2BeRoot 과제만 하더라도, 맥 컴퓨터에 리눅스를 물리적으로
+        설치하지 않고 가상머신에 설치함으로써 호스트 맥 운영체제에 영향을 주지
+        않고 리눅스 환경에서 다양한 작업들을 할 수 있고, 리눅스 환경의 서버를
+        구성할 수도 있다.
+      </p>
+      <p>
+        회사나 서버의 관점에서는 한대의 서버 컴퓨터에 여러 개의 가상 머신을
+        만들어 여러 개의 서버를 돌리면 유지 비용이나 관리 등에서 유리하다.
+      </p>
+      <p>
+        다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어
+        각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버
+        시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는
+        서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상 머신 서버를
+        사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을 대여해주고
+        있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을
+        만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로 클라우드
+        서버 시스템을 대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터
+        하나에서 가상 머신을 만들어 각각의 가상 머신 서버를 사용자들에게
+        빌려주는 방식으로 클라우드 서버 시스템을 대여해주고 있다다양한 예시가
+        있겠지만, AWS 는 서버 컴퓨터 하나에서 가상 머신을 만들어 각각의 가상
+        머신 서버를 사용자들에게 빌려주는 방식으로 클라우드 서버 시스템을
+        대여해주고 있다다양한 예시가 있겠지만, AWS 는 서버 컴퓨터 하나에서 가상
+        머신을 만들어 각각의 가상 머신 서버를 사용자들에게 빌려주는 방식으로
+        클라우드 서버 시스템을 대여해주고 있다.
+      </p>
+      <ul>
+        <li>
+          비용 절감, 민첩성 및 속도, 가동 중지 시간 감소, 스케일링 성능, 보안
+          이점 (출처 :
+          <a
+            href="https://azure.microsoft.com/ko-kr/resources/cloud-computing-dictionary/what-is-a-virtual-machine"
+            >microsoft asure</a
+          >)
+        </li>
+      </ul>
     </section>
 
-    <!-- footer -->
-    <footer>
-      <div class="logo button" OnClick="location.href ='/projects'">
-        <img class="logo__image" src="/asset/logo/logo_inticoy_lightmode.svg" />
-        <img class="logo__text" src="/asset/logo/logo_inticoy_text.svg" />
+    <footer
+      class="w-full h-16 p-8 bg-white/80 backdrop-blur-md flex flex-row space-x-8 items-center border-t border-main-30"
+    >
+      <div
+        class="flex items-center cursor-pointer"
+        onclick="location.href ='/'"
+      >
+        <img
+          class="w-auto h-10"
+          src="/asset/logo/logo_inticoy_lightmode.svg"
+          alt="Logo"
+        />
+        <img
+          class="w-auto h-4 ml-2"
+          src="/asset/logo/logo_inticoy_text.svg"
+          alt="Logo Text"
+        />
       </div>
-      <div class="spacer"></div>
-      <div>INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED</div>
-      <div class="spacer"></div>
-      <div class="feature">
+      <div class="flex-1 text-center">
+        INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED
+      </div>
+      <div class="flex flex-row items-center space-x-2">
         <div
-          class="feature__button button"
+          class="flex h-6 w-6 cursor-pointer"
           OnClick="location.href ='https://github.com/inticoy'"
         >
           <img
-            class="feature__icon"
+            class=""
             src="/asset/icon/github-mark/github-mark.svg"
             alt="GitHub Icon"
           />
         </div>
-        <div class="feature__button button">
-          <span class="material-symbols-rounded feature__icon">
-            dark_mode
-          </span>
+        <div class="flex cursor-pointer">
+          <span class="material-symbols-rounded"> dark_mode </span>
         </div>
       </div>
     </footer>
+
     <script src="/src/scripts/lib/marked.js"></script>
     <script type="module" src="/src/scripts/app.js"></script>
   </body>

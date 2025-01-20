@@ -5,10 +5,10 @@
 @import url("/src/styles/component/list.css");
 @import url("/src/styles/component/logo.css");
 
-@import url("/src/styles/layout/nav.css");
-@import url("/src/styles/layout/header.css");
-@import url("/src/styles/layout/section.css");
-@import url("/src/styles/layout/footer.css");
+/* @import url("/src/styles/layout/nav.css"); */
+/* @import url("/src/styles/layout/header.css"); */
+/* @import url("/src/styles/layout/section.css"); */
+/* @import url("/src/styles/layout/footer.css"); */
 
 /* TODO: github icon be set in the container */
 
@@ -29,7 +29,6 @@ body {
   align-items: center;
 }
 
-.spacer {
-  flex-grow: 1;
-  visibility: hidden;
+h1 {
+  @apply text-4xl font-bold text-gray-800;
 }
