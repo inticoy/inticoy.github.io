@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,19 +30,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <!-- and it's easy to individually load additional languages -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script> -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link href="/src/styles/tailwind.css" rel="stylesheet" />
   </head>
-  <body class="">
+  <body
+    class="w-full bg-white dark:bg-inticoy-dark text-inticoy-dark dark:text-white"
+  >
     <nav
-      class="h-16 fixed top-0 left-0 right-0 p-8 bg-white/80 backdrop-blur-md flex flex-row space-x-8 items-center border-b border-main-30"
+      class="h-16 w-full sticky top-0 z-40 p-8 bg-white/80 dark:bg-inticoy-dark backdrop-blur-md flex flex-row space-x-8 items-center border-b border-main-30"
     >
       <div
         class="flex items-center cursor-pointer"
         onclick="location.href ='/'"
       >
         <img
-          class="w-auto h-10"
+          class="w-auto h-10 dark:hidden"
           src="/asset/logo/logo_inticoy_lightmode.svg"
+          alt="Logo"
+        />
+        <img
+          class="w-auto h-10 hidden dark:block"
+          src="/asset/logo/logo_inticoy_darkmode.svg"
           alt="Logo"
         />
         <img
@@ -52,52 +60,78 @@
         />
       </div>
 
-      <ul class="flex-1 flex flex-row items-center space-x-8">
+      <div class="flex-1"></div>
+
+      <ul class="hidden md:flex flex-row items-center space-x-8">
         <li class="grow"></li>
         <li
-          class="text-gray-700 hover:text-blue-500 cursor-pointer"
+          class="hover:text-blue-500 cursor-pointer"
           onclick="location.href ='/about'"
         >
           <a>About</a>
         </li>
         <li
-          class="text-gray-700 hover:text-blue-500 cursor-pointer"
+          class="hover:text-blue-500 cursor-pointer"
           onclick="location.href ='/posts'"
         >
           <a>Posts</a>
         </li>
         <li
-          class="text-gray-700 hover:text-blue-500 cursor-pointer"
+          class="hover:text-blue-500 cursor-pointer"
           onclick="location.href ='/projects'"
         >
           <a>Projects</a>
         </li>
       </ul>
 
-      <div
-        class="flex items-center cursor-pointer"
-        onclick="location.href ='/search'"
-      >
+      <div class="flex items-center space-x-2 cursor-pointer">
         <span
-          class="w-6 h-6 material-symbols-rounded text-gray-700 hover:text-blue-500"
+          class="w-6 h-6 material-symbols-rounded hover:text-blue-500"
+          onclick="location.href ='/search'"
         >
           search
         </span>
+        <div id="hamburger-menu" class="md:hidden flex items-center">
+          <span class="hover:text-blue-500 material-symbols-rounded">menu</span>
+        </div>
       </div>
     </nav>
 
-    <header>
-      <div class="">
-        <img class="" src="/asset/logo/logo_inticoy_lightmode.svg" />
-        <div class="">
-          <div id="header__title" class=""></div>
-          <div id="header__date" class=""></div>
-        </div>
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden fixed inset-0 bg-white bg-opacity-90 z-50"
+    >
+      <div id="close-mobile-menu" class="fixed top-8 right-8">
+        <span class="w-8 h-8 material-symbols-rounded">close</span>
       </div>
-    </header>
 
-    <section>
-      <h1>🖥️ Why Virtual Machine?</h1>
+      <div class="flex flex-col items-center p-8 space-y-4">
+        <a href="/about" class="text-gray-700">About</a>
+        <a href="/posts" class="text-gray-700">Posts</a>
+        <a href="/projects" class="text-gray-700">Projects</a>
+      </div>
+    </div>
+
+    <div
+      class="w-full md:max-w-4xl px-6 md:px-8 py-8 m-auto break-words space-y-16"
+    >
+      <header>
+        <div>
+          <!-- <img src="/asset/logo/logo_inticoy_lightmode.svg" /> -->
+          <div>
+            <p class="text-4xl font-extrabold">
+              born2beroot로 알아보는 linux
+            </p>
+            <p class="text-md">Fri Jan 20 2023 14:00:00 GMT+0900 (Korean Standard Time)</p>
+            <p class="text-md">
+              <!-- SUMMARY -->
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <article class="prose dark:prose-invert max-w-none">
+        <h1>🖥️ Why Virtual Machine?</h1>
 <h2>❓ How Virtual Machine works?</h2>
 <p>Hypervisor가 가상머신이 호스트의 하드웨어를 사용할 수 있게끔 해준다. 하지만 Hypervisor 또한 Virtual Box와 같은 프로그램이기 때문에, 호스트의 운영체제 상에서 실행되어 가상머신이 요구한 작업이 실행되도록 하고, 가상머신 입장에서는 실제로 컴퓨터 하드웨어 상에서 곧바로 실행되는 것처럼 인식되도록 한다.</p>
 <p>쉽게 말해, Virtual Box는 프로그램으로서 Host OS에게 실제 하드웨어를 일부분 할당받고, Guest OS가 할당받은 하드웨어를 전부라고 생각하게끔 해주는 역할을 한다.</p>
@@ -417,10 +451,11 @@ printf &quot;\t#Sudo : $sudoes\n&quot;
 <li>위에서 visudo를 통해 <code>Defaults requirestty</code> 옵션을 주었는데, cron은 tty 환경에서 실행되지 않기 때문에 <code>sudo</code> 명령어가 정상적으로 작동하지 않는다.</li>
 </ul>
 
-    </section>
+      </article>
+    </div>
 
     <footer
-      class="w-full h-16 p-8 bg-white/80 backdrop-blur-md flex flex-row space-x-8 items-center border-t border-main-30"
+      class="w-full h-16 p-8 bg-white/80 dark:bg-inticoy-dark backdrop-blur-md flex flex-row space-x-8 items-center border-t border-main-30"
     >
       <div
         class="flex items-center cursor-pointer"
@@ -437,9 +472,13 @@ printf &quot;\t#Sudo : $sudoes\n&quot;
           alt="Logo Text"
         />
       </div>
-      <div class="flex-1 text-center">
-        INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED
+      <div class="flex-1"></div>
+      <div class="hidden md:block">
+        <div class="text-base text-xs whitespace-nowrap">
+          INTICOY ©️ 2024. 윤건우. ALL RIGHTS RESERVED
+        </div>
       </div>
+      <div class="flex-1"></div>
       <div class="flex flex-row items-center space-x-2">
         <div
           class="flex h-6 w-6 cursor-pointer"
@@ -451,10 +490,13 @@ printf &quot;\t#Sudo : $sudoes\n&quot;
             alt="GitHub Icon"
           />
         </div>
-        <div class="flex cursor-pointer">
+        <div id="toggle-dark-mode" class="flex cursor-pointer">
           <span class="material-symbols-rounded"> dark_mode </span>
         </div>
       </div>
     </footer>
+
+    <script src="/src/scripts/lib/marked.js"></script>
+    <script type="module" src="/src/scripts/app.js"></script>
   </body>
 </html>

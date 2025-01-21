@@ -48,7 +48,7 @@ const processFile = (filename, template, outPath) => {
 
 const main = () => {
   const contentPath = path.resolve("content");
-  const blogPath = path.join(contentPath, "blog");
+  const postPath = path.join(contentPath, "posts");
 
   const templatePath = path.resolve("template");
   const outPath = path.resolve("posts");
@@ -58,7 +58,7 @@ const main = () => {
     "utf8"
   );
 
-  const filenames = glob.sync(blogPath + "/*.md");
+  const filenames = glob.sync(postPath + "/*.md");
 
   filenames.forEach((filename) => {
     processFile(filename, template, outPath);
