@@ -10,5 +10,3 @@ COPY . /usr/share/nginx/html
 COPY ./tools/default.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /usr/share/nginx/html/
-
-RUN ./helper.py push

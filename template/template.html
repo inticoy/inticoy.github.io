@@ -20,6 +20,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <link rel="stylesheet" href="/src/styles/main.css" />
     <script type="text/javascript" src="/src/scripts/lib/ghspa.js"></script>
     <!-- Code Highlight -->
     <link
@@ -119,12 +120,10 @@
           <!-- <img src="/asset/logo/logo_inticoy_lightmode.svg" /> -->
           <div>
             <p class="text-4xl font-extrabold">
-              제목 홍길동에 대해서
               <!-- TITLE -->
             </p>
-            <p class="text-md">2025.04.06<!-- PUBLISH_DATE --></p>
+            <p class="text-md"><!-- PUBLISH_DATE --></p>
             <p class="text-md">
-              Small 2D Game from 42Seoul Assignment.
               <!-- SUMMARY -->
             </p>
           </div>
@@ -133,83 +132,6 @@
 
       <article class="prose dark:prose-invert max-w-none">
         <!-- CONTENT -->
-        <p>
-          Imitation of a classic profile-view game,
-          <strong>Super Mario Bros. (Nintendo, 1985)</strong>
-        </p>
-        <h2 id="about-this-project">About this project</h2>
-        <p>
-          <img
-            width="768"
-            alt="Screenshot 2023-11-03 at 14 46 48"
-            src="https://github.com/inticoy/so_long/assets/55380241/6f7aa194-d0f1-42df-9262-e25004a2eed7"
-          />
-        </p>
-        <p>This game is imitation of the game Super Mario Bros. (1985)</p>
-        <p>Movement of Goomba and Mario are implemented.</p>
-        <p>
-          You can collect coins with your character, Mario by using WASD keys.
-        </p>
-        <h2 id="getting-started">Getting Started</h2>
-        <h3 id="environment">Environment</h3>
-        <p>Compatible with M1(ARM) Macs and Intel Macs.</p>
-        <h3 id="installation">Installation</h3>
-        <ol>
-          <li>Clone this repo.</li>
-        </ol>
-        <pre><code data-highlighted="yes" class="hljs language-bash">git <span class="hljs-built_in">clone</span> https://github.com/inticoy/so_long.git
-        </code></pre>
-        <ol>
-          <li>Compile so_long with Makefile</li>
-        </ol>
-        <pre><code data-highlighted="yes" class="hljs language-css">make <span class="hljs-attribute">all</span>
-        </code></pre>
-        <h2 id="usage">Usage</h2>
-        <h3 id="execution">Execution</h3>
-        <p>You need a valid map path for play.</p>
-        <pre><code data-highlighted="yes" class="hljs language-bash">./so_long [map path]
-        </code></pre>
-        <p>Sample valid maps are in maps/valid/.</p>
-        <pre><code data-highlighted="yes" class="hljs language-bash">./so_long maps/valid/1.ber
-        </code></pre>
-        <h3 id="valid-map">Valid map</h3>
-        <p>There are six conditions for valid map below.</p>
-        <p>You can make your own map that follows these conditions.</p>
-        <ul>
-          <li>The map must be rectangular.</li>
-          <li>The map must be closed/surrounded by walls.</li>
-          <li>
-            The map must have only five characters, 0(Space), 1(Wall), P(layer),
-            C(ollectibles), and E(xit).
-          </li>
-          <li>The map must have only one P(layer) and E(xit).</li>
-          <li>The map must have at least one C(ollectibles).</li>
-          <li>You have to check if there's a valid path in the map.</li>
-        </ul>
-        <h3 id="game-play">Game play</h3>
-        <p>
-          You are a player Mario. Collect every coins and reach to princess
-          Peach.
-        </p>
-        <p>
-          Please be carefull, a enemy Goomba is moving around princess Peach.
-        </p>
-        <p>
-          You can jump and smash the enemy Goomba, but if you meet with Goomba
-          at Goomba's eye level, game will be over.
-        </p>
-        <h3 id="instructions">Instructions</h3>
-        <p>
-          jump - <code>W, S</code>, left - <code>a</code>, right -
-          <code>d</code>, retry - <code>r</code>, quit the game -
-          <code>esc</code>
-        </p>
-        <p>Please Enjoy!</p>
-        <pre><code class="lang-c hljs language-c" data-highlighted="yes"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>
-        {
-          <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-        }
-        </code></pre>
       </article>
     </div>
 
