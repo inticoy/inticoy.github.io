@@ -3,10 +3,8 @@ title: "born2beroot로 알아보는 linux"
 date: 2023-01-20T14:00:00+09:00 # 작성/게시 날짜
 lastmod: 2023-01-20T15:00:00+09:00 # 최종 수정 날짜
 author: "작성자 이름" # 작성자 (선택)
-categories: # 카테고리 목록
-  - Develop
-tags: # 태그 목록
-  - linux
+categories: ["Develop"]
+tags: [""]
 draft: false # 초안 여부 (true면 게시되지 않음)
 summary: "이 글의 간단한 요약" # 요약문 (선택)
 thumbnail: "/path/to/thumbnail.jpg" # 썸네일 이미지 경로 (선택)
