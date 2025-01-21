@@ -11,7 +11,20 @@ const readFile = (filename) => {
   const parsed = matter(rawFile);
   const html = marked(parsed.content);
 
+  // {
+  //   content: "This is the body content of the article.",
+  //   data: { title: "My Article", date: "2025-01-01" },
+  //   isEmpty: false,
+  //   excerpt: "",
+  //   html: "<p>This is the body content of the article.</p>"
+  // }
   return { ...parsed, html };
+};
+
+const saveFile = (filename, contents) => {
+  const dir = path.dirname(filename);
+  mkdirp.sync(dir);
+  fs.writeFileSync(filename, contents);
 };
 
 const templatize = (
@@ -27,18 +40,20 @@ const templatize = (
     // .replace(/<!-- THUMBNAIL -->/g, thumbnail)
     .replace(/<!-- CONTENT -->/g, content);
 
-const saveFile = (filename, contents) => {
-  const dir = path.dirname(filename);
-  mkdirp.sync(dir);
-  fs.writeFileSync(filename, contents);
-};
-
 const getOutputFilename = (filename, outPath) => {
   const basename = path.basename(filename);
-  const newfilename =
-    basename === "_index.md"
-      ? "index.html"
-      : basename.substring(11, basename.length - 3) + ".html";
+  var newfilename;
+  switch (basename) {
+    case "_index.md":
+      newfilename = "index.html";
+      break;
+    case "404.md":
+      newfilename = "404.html";
+      break;
+    default:
+      newfilename = basename.substring(11, basename.length - 3) + ".html";
+      break;
+  }
   const outfile = path.join(outPath, newfilename);
   return outfile;
 };
@@ -47,6 +62,7 @@ const processFile = (filename, template, outPath) => {
   const file = readFile(filename);
   const outfilename = getOutputFilename(filename, outPath);
 
+  // date: new Date(file.data.date).toISOString().split("T")[0],
   const templatized = templatize(template, {
     categories: file.data.categories,
     title: file.data.title,
@@ -108,6 +124,50 @@ async function copyDirectory(source, destination) {
   }
 }
 
+const generatePostIndex = (filenames, template, outPath) => {
+  // 목록 생성
+  const postLinks = filenames.map((filename) => {
+    const { data } = readFile(filename); // 파일에서 메타데이터 읽기
+    const title = data.title || "Untitled"; // 제목이 없으면 기본값 사용
+    const summary = data.summary || "No summary available."; // 요약이 없으면 기본값 사용
+    const date = data.date || "Unknown Date"; // 날짜가 없으면 기본값 사용
+    const categories = data.categories || "Uncategorized"; // 카테고리가 없으면 기본값 사용
+    const url = "./" + path.basename(getOutputFilename(filename, outPath)); // 파일 경로 생성
+
+    // HTML 항목 생성
+    return `
+      <div class="flex flex-col cursor-pointer" onclick="location.href ='${url}'">
+          <div class="text-sm font-semibold">${categories}</div>
+          <div class="text-md font-bold">${title}</div>
+          <div class="text-md">${summary}</div>
+          <div class="text-sm">${
+            new Date(date).toISOString().split("T")[0]
+          }</div>
+      </div>
+    `;
+  });
+
+  // 목록 HTML로 병합
+  const listHtml = `<div class="flex flex-col space-y-12">${postLinks.join(
+    "\n"
+  )}</div>`;
+
+  // 템플릿에 삽입
+  const templatized = templatize(template, {
+    categories: "Posts",
+    title: "Posts Index",
+    summary: "List of all posts",
+    date: new Date().toISOString().split("T")[0],
+    tags: "",
+    thumbnail: "",
+    content: listHtml,
+  });
+
+  // 파일 저장
+  saveFile(path.join(outPath, "index.html"), templatized);
+  console.log(`📂 Index file created at: ${path.join(outPath, "index.html")}`);
+};
+
 const main = () => {
   const staticFiles = [
     { source: "./src/tailwind.css", destination: "./build/src/tailwind.css" },
@@ -118,9 +178,11 @@ const main = () => {
   copyDirectory("./asset", "./build/asset");
 
   const contentPath = path.resolve("content");
+  const contentAboutPath = path.join(contentPath, "about");
   const contentPostsPath = path.join(contentPath, "posts");
   const templatePath = path.resolve("template");
   const outPath = path.resolve("build");
+  const outAboutPath = path.join(outPath, "about");
   const outPostsPath = path.join(outPath, "posts");
 
   // read template
@@ -132,13 +194,19 @@ const main = () => {
   // index.html
   processFile(path.join(contentPath, "_index.md"), template, outPath);
 
+  // 404.html
+  processFile(path.join(contentPath, "404.md"), template, outPath);
+
+  // about/index.html
+  processFile(path.join(contentAboutPath, "_index.md"), template, outAboutPath);
+
   // posts
   const filenames = glob
     .sync(contentPostsPath + "/*.md")
     .filter((filename) => !filename.includes("_index.md"));
 
   // posts/index.html
-  processFile(path.join(contentPostsPath, "_index.md"), template, outPostsPath);
+  generatePostIndex(filenames, template, outPostsPath);
 
   // posts/title.html
   filenames.forEach((filename) => {
