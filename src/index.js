@@ -35,7 +35,10 @@ const saveFile = (filename, contents) => {
 
 const getOutputFilename = (filename, outPath) => {
   const basename = path.basename(filename);
-  const newfilename = basename.substring(11, basename.length - 3) + ".html";
+  const newfilename =
+    basename === "_index.md"
+      ? "index.html"
+      : basename.substring(11, basename.length - 3) + ".html";
   const outfile = path.join(outPath, newfilename);
   return outfile;
 };
@@ -77,7 +80,33 @@ async function copyStaticFiles(files) {
   }
 }
 
-// 사용 예시
+async function copyDirectory(source, destination) {
+  try {
+    const files = await fsPromises.readdir(source, { withFileTypes: true });
+
+    // 디렉터리 생성
+    await mkdirp(destination); // mkdirp 사용하여 디렉터리 생성
+
+    await Promise.all(
+      files.map(async (file) => {
+        const srcPath = path.join(source, file.name);
+        const destPath = path.join(destination, file.name);
+
+        if (file.isDirectory()) {
+          // 하위 디렉터리 복사
+          await copyDirectory(srcPath, destPath);
+        } else {
+          // 파일 복사
+          await fsPromises.copyFile(srcPath, destPath);
+          console.log(`파일 복사: ${srcPath} → ${destPath}`);
+        }
+      })
+    );
+    console.log("디렉터리 및 모든 파일 복사 완료!");
+  } catch (err) {
+    console.error("디렉터리 복사 중 오류 발생:", err);
+  }
+}
 
 const main = () => {
   const staticFiles = [
@@ -86,6 +115,8 @@ const main = () => {
   ];
 
   copyStaticFiles(staticFiles);
+  copyDirectory("./src", "./build/src");
+  copyDirectory("./asset", "./build/asset");
 
   const contentPath = path.resolve("content");
   const contentPostsPath = path.join(contentPath, "posts");
@@ -100,10 +131,17 @@ const main = () => {
   );
 
   // index.html
-  processFile(path.join(contentPath, "YYYY-MM-DD-index.md"), template, outPath);
+  processFile(path.join(contentPath, "_index.md"), template, outPath);
 
   // posts
-  const filenames = glob.sync(contentPostsPath + "/*.md");
+  const filenames = glob
+    .sync(contentPostsPath + "/*.md")
+    .filter((filename) => !filename.includes("_index.md"));
+
+  // posts/index.html
+  processFile(path.join(contentPostsPath, "_index.md"), template, outPostsPath);
+
+  // posts/title.html
   filenames.forEach((filename) => {
     processFile(filename, template, outPostsPath);
   });
