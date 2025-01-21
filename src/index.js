@@ -29,12 +29,13 @@ const saveFile = (filename, contents) => {
 
 const templatize = (
   template,
-  { categories, title, summary, date, tags, thumbnail, content }
+  { emoji, title, categories, summary, date, tags, thumbnail, content }
 ) =>
   template
-    .replace(/<!-- CATEGORY -->/g, categories)
+    .replace(/<!-- EMOJI -->/g, emoji)
     .replace(/<!-- TITLE -->/g, title)
-    .replace(/<!-- SUMMARY -->/g, summary)
+    .replace(/<!-- CATEGORY -->/g, categories)
+    // .replace(/<!-- SUMMARY -->/g, summary)
     .replace(/<!-- PUBLISH_DATE -->/g, date)
     // .replace(/<!-- TAG -->/g, tags)
     // .replace(/<!-- THUMBNAIL -->/g, thumbnail)
@@ -64,6 +65,7 @@ const processFile = (filename, template, outPath) => {
 
   // date: new Date(file.data.date).toISOString().split("T")[0],
   const templatized = templatize(template, {
+    emoji: file.data.emoji,
     categories: file.data.categories,
     title: file.data.title,
     summary: file.data.summary,
@@ -128,6 +130,7 @@ const generatePostIndex = (filenames, template, outPath) => {
   // 목록 생성
   const postLinks = filenames.map((filename) => {
     const { data } = readFile(filename); // 파일에서 메타데이터 읽기
+    const emoji = data.emoji || "🗒️";
     const title = data.title || "Untitled"; // 제목이 없으면 기본값 사용
     const summary = data.summary || "No summary available."; // 요약이 없으면 기본값 사용
     const date = data.date || "Unknown Date"; // 날짜가 없으면 기본값 사용
@@ -138,7 +141,7 @@ const generatePostIndex = (filenames, template, outPath) => {
     return `
       <div class="flex flex-col cursor-pointer" onclick="location.href ='${url}'">
           <div class="text-sm font-semibold">${categories}</div>
-          <div class="text-md font-bold">${title}</div>
+          <div class="text-md font-bold">${emoji} ${title}</div>
           <div class="text-md">${summary}</div>
           <div class="text-sm">${
             new Date(date).toISOString().split("T")[0]
@@ -154,6 +157,7 @@ const generatePostIndex = (filenames, template, outPath) => {
 
   // 템플릿에 삽입
   const templatized = templatize(template, {
+    emoji: "📚",
     categories: "Posts",
     title: "Posts Index",
     summary: "List of all posts",
