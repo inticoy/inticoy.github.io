@@ -51,7 +51,7 @@ const main = () => {
   const postPath = path.join(contentPath, "posts");
 
   const templatePath = path.resolve("template");
-  const outPath = path.resolve("posts");
+  const outPath = path.resolve("build");
   // const template = fs.readFileSync(path.join(srcPath, "template.html"), "utf8");
   const template = fs.readFileSync(
     path.join(templatePath, "template.html"),
