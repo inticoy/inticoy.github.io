@@ -30,16 +30,26 @@ const saveFile = (filename, contents) => {
 const templatize = (
   template,
   { emoji, title, categories, summary, date, tags, thumbnail, content }
-) =>
-  template
-    .replace(/<!-- EMOJI -->/g, emoji)
-    .replace(/<!-- TITLE -->/g, title)
-    .replace(/<!-- CATEGORY -->/g, categories)
-    // .replace(/<!-- SUMMARY -->/g, summary)
-    .replace(/<!-- PUBLISH_DATE -->/g, date)
-    // .replace(/<!-- TAG -->/g, tags)
-    // .replace(/<!-- THUMBNAIL -->/g, thumbnail)
-    .replace(/<!-- CONTENT -->/g, content);
+) => {
+  const formattedDate = date
+    ? new Date(date).toISOString().split("T")[0]
+    : "Unknown Date";
+
+  const formattedTags = Array.isArray(tags)
+    ? tags.map((tag) => `#${tag}`).join(" ")
+    : tags; // tags가 배열이 아니면 그대로 사용
+  return (
+    template
+      .replace(/<!-- EMOJI -->/g, emoji)
+      .replace(/<!-- TITLE -->/g, title)
+      .replace(/<!-- CATEGORY -->/g, categories)
+      // .replace(/<!-- SUMMARY -->/g, summary)
+      .replace(/<!-- PUBLISH_DATE -->/g, formattedDate)
+      .replace(/<!-- TAG -->/g, formattedTags)
+      // .replace(/<!-- THUMBNAIL -->/g, thumbnail)
+      .replace(/<!-- CONTENT -->/g, content)
+  );
+};
 
 const getOutputFilename = (filename, outPath) => {
   const basename = path.basename(filename);
@@ -63,7 +73,6 @@ const processFile = (filename, template, outPath) => {
   const file = readFile(filename);
   const outfilename = getOutputFilename(filename, outPath);
 
-  // date: new Date(file.data.date).toISOString().split("T")[0],
   const templatized = templatize(template, {
     emoji: file.data.emoji,
     categories: file.data.categories,
@@ -78,25 +87,6 @@ const processFile = (filename, template, outPath) => {
   saveFile(outfilename, templatized);
   console.log(`📝 ${outfilename}`);
 };
-
-async function copyStaticFiles(files) {
-  try {
-    await Promise.all(
-      files.map(async ({ source, destination }) => {
-        // 복사할 디렉터리 존재 여부 확인 후 생성
-        const dir = path.dirname(destination);
-        mkdirp.sync(dir);
-
-        // 파일 복사
-        await fsPromises.copyFile(source, destination);
-        console.log(`복사 성공: ${source} → ${destination}`);
-      })
-    );
-    console.log("모든 파일 복사가 완료되었습니다!");
-  } catch (err) {
-    console.error("파일 복사 중 오류 발생:", err);
-  }
-}
 
 async function copyDirectory(source, destination) {
   try {
@@ -159,9 +149,9 @@ const generatePostIndex = (filenames, template, outPath) => {
   const templatized = templatize(template, {
     emoji: "📚",
     categories: "Posts",
-    title: "Posts Index",
-    summary: "List of all posts",
-    date: new Date().toISOString().split("T")[0],
+    title: "Posts",
+    summary: "",
+    date: filenames.length,
     tags: "",
     thumbnail: "",
     content: listHtml,
