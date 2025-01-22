@@ -5,7 +5,7 @@ date: 2023-01-20T14:00:00+09:00
 lastmod: 2023-01-20T15:00:00+09:00
 author: "Inticoy"
 categories: ["Homepage"]
-tags: [""]
+tags: ["rock", "scissors", "paper"]
 draft: false
 thumbnail: "/path/to/thumbnail.jpg"
 ---
