@@ -1147,6 +1147,10 @@ video {
   height: 1.5rem;
 }
 
+.h-72 {
+  height: 18rem;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1260,6 +1264,30 @@ video {
 
 .bg-opacity-95 {
   --tw-bg-opacity: 0.95;
+}
+
+.bg-\[url\(\'\/asset\/img\/post\/2022-03-21\/unithon-sketch\.png\'\)\] {
+  background-image: url('/asset/img/post/2022-03-21/unithon-sketch.png');
+}
+
+.bg-\[url\(\'\/asset\/img\/index\.png\'\)\] {
+  background-image: url('/asset/img/index.png');
+}
+
+.bg-\[url\(\'\/asset\/img\/index\.jpeg\'\)\] {
+  background-image: url('/asset/img/index.jpeg');
+}
+
+.bg-\[url\(\'\/asset\/img\/index\.jpg\'\)\] {
+  background-image: url('/asset/img/index.jpg');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .p-2 {
