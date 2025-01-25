@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./*.html", "./template/*.html"],
+  content: ["./src/template/*.html"],
   plugins: [require("@tailwindcss/typography")],
   darkMode: "selector",
   theme: {

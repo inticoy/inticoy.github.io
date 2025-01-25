@@ -163,27 +163,22 @@ const generatePostIndex = (filenames, template, outPath) => {
 };
 
 const main = () => {
-  const staticFiles = [
-    { source: "./src/tailwind.css", destination: "./build/src/tailwind.css" },
-    { source: "./src/app.js", destination: "./build/src/app.js" },
-  ];
-
-  copyDirectory("./src", "./build/src");
-  copyDirectory("./asset", "./build/asset");
+  copyDirectory("./public", "./build");
 
   const contentPath = path.resolve("content");
   const contentAboutPath = path.join(contentPath, "about");
   const contentPostsPath = path.join(contentPath, "posts");
-  const templatePath = path.resolve("template");
-  const outPath = path.resolve("build");
-  const outAboutPath = path.join(outPath, "about");
-  const outPostsPath = path.join(outPath, "posts");
 
-  // read template
+  const srcPath = path.resolve("src");
+  const templatePath = path.join(srcPath, "template");
   const template = fs.readFileSync(
     path.join(templatePath, "template.html"),
     "utf8"
   );
+
+  const outPath = path.resolve("build");
+  const outAboutPath = path.join(outPath, "about");
+  const outPostsPath = path.join(outPath, "posts");
 
   // index.html
   processFile(path.join(contentPath, "_index.md"), template, outPath);

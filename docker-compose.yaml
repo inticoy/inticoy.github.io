@@ -4,5 +4,5 @@ services:
     container_name: inticoy-blog
     build: .
     ports:
-      - "8000:80"
+      - "80:80"
     restart: always

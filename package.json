@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js",
-    "build:css": "npx tailwindcss -i ./src/main.css -o ./src/tailwind.css --watch",
-    "build": "npm start"
+    "start": "npm run build && docker-compose up -d --build",
+    "build:css": "npx tailwindcss -i ./src/styles/main.css -o ./public/css/main.css --watch",
+    "build": "node src/scripts/index.js"
   },
   "repository": {
     "type": "git",
