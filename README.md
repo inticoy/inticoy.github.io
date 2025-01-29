@@ -1,91 +1,36 @@
-<h1 align="center">
-  so_long
-</h1>
-
-<h3 align="center">
-  Small 2D Game from 42Seoul Assignment.
-</h3>
-
----
-
-Imitation of a classic profile-view game, **Super Mario Bros. (Nintendo, 1985)**
-
-## About this project
-
-<img width="768" alt="Screenshot 2023-11-03 at 14 46 48" src="https://github.com/inticoy/so_long/assets/55380241/6f7aa194-d0f1-42df-9262-e25004a2eed7">
-
-This game is imitation of the game Super Mario Bros. (1985)
-
-Movement of Goomba and Mario are implemented.
-
-You can collect coins with your character, Mario by using WASD keys.
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-### Environment
+First, run the development server:
 
-Compatible with M1(ARM) Macs and Intel Macs.
-
-### Installation
-
-1. Clone this repo.
-
-```
-git clone https://github.com/inticoy/so_long.git
-```
-
-2. Compile so_long with Makefile
-
-```
-make all
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Usage
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Execution
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-You need a valid map path for play.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```
-./so_long [map path]
-```
+## Learn More
 
-Sample valid maps are in maps/valid/.
+To learn more about Next.js, take a look at the following resources:
 
-```
-./so_long maps/valid/1.ber
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Valid map
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-There are six conditions for valid map below.
+## Deploy on Vercel
 
-You can make your own map that follows these conditions.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- The map must be rectangular.
-- The map must be closed/surrounded by walls.
-- The map must have only five characters, 0(Space), 1(Wall), P(layer), C(ollectibles, and E(xit).
-- The map must have only one P(layer) and E(xit).
-- The map must have at least one C(ollectibles).
-- You have to check if there's a valid path in the map.
-
-### Game play
-
-You are a player Mario. Collect every coins and reach to princess Peach.
-
-Please be carefull, a enemy Goomba is moving around princess Peach.
-
-You can jump and smash the enemy Goomba, but if you meet with Goomba at Goomba's eye level, game will be over.
-
-### Instructions
-
-jump - `W, S`, left - `a`, right - `d`, retry - `r`, quit the game - `esc`
-
-Please Enjoy!
-
-```c
-int main()
-{
-  return 0;
-}
-```
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
