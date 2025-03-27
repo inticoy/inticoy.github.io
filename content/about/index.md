@@ -38,3 +38,49 @@ thumbnail: "/path/to/thumbnail.jpg"
 ## Education
 
 - 한양대학교 컴퓨터소프트웨어학부 (2019.03 - 현재)
+
+```js
+export const StandardPage = async ({ path }) => {
+  let matter;
+
+  switch (path) {
+    case "/":
+      matter = getHome();
+      break;
+    case "/about":
+      matter = getAbout();
+      break;
+    case "/posts":
+      matter = getPosts();
+      break;
+    case "/projects":
+      matter = getProjects();
+      break;
+    default:
+      notFound();
+  }
+```
+
+$r$ : Number base
+
+$M$ : Information Quantity
+
+$n$ : Number of digits ($n=\log_r M$)
+
+$C_r$ : Circuit cost per digit ($C_r = k \cdot r$ 가정)
+
+$C$ : Total circuit cost
+
+$$
+\begin{array}{rcl}
+C & = & C_r \cdot n \\
+ & = & k \cdot r \cdot \log_r M \\
+ & = & k \cdot \ln M \cdot \frac{r}{\ln r}
+\end{array}
+$$
+
+C의 최소값을 찾기 위해서 미분하여 0이 되는 지점을 찾으면,
+
+$$
+\frac{dC}{dr} = k \cdot \ln M \cdot \frac{\ln r - 1}{(\ln r)^2}
+$$
