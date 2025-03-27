@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
 
-import { GitHub, DarkMode } from "@mui/icons-material";
+import { GitHub, DarkMode, LinkedIn } from "@mui/icons-material";
 import { Logo } from "../ui/logo";
 import { IconButton } from "../ui/buttons";
 import Spacer from "./Spacer";
@@ -31,6 +30,10 @@ export function Footer() {
       <div className="flex flex-row items-center">
         <IconButton href="https://github.com/inticoy">
           <GitHub />
+        </IconButton>
+
+        <IconButton href="https://linkedin.com/in/inticoy">
+          <LinkedIn />
         </IconButton>
 
         <IconButton onClick={handleDarkModeToggle}>
