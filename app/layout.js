@@ -4,6 +4,10 @@ import { Navbar } from "./components/layout/Nav";
 import { Footer } from "./components/layout/Footer";
 
 import "./globals.css";
+import "./components/gyoon-dark-code-block.css";
+
+// KaTeX CSS 추가
+import "katex/dist/katex.min.css";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],

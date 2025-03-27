@@ -49,7 +49,7 @@ export function getBlogPosts() {
 
 export function getIndex(dir) {
   const filePath = path.join(dir, "index.md");
-  const rawContent = fs.readFileSync(filePath);
+  const rawContent = fs.readFileSync(filePath, "utf-8");
 
   const { data: metadata, content } = matter(rawContent);
 
