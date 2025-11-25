@@ -2,7 +2,10 @@ import { NotionAPI } from 'notion-client';
 import { ExtendedRecordMap } from 'notion-types';
 import { getDateValue, getTextContent } from 'notion-utils';
 
-export const notion = new NotionAPI();
+export const notion = new NotionAPI({
+  activeUser: process.env.NOTION_ACTIVE_USER,
+  authToken: process.env.NOTION_TOKEN_V2,
+});
 
 // Placeholder ID - User must replace this with their actual Notion Page ID for the Posts DB
 export const NOTION_ROOT_PAGE_ID = process.env.NOTION_ROOT_PAGE_ID || '14e968ed5de3809d9019c8065090875e'; 

@@ -7,6 +7,8 @@ const { ArrowLeft, CalendarBlank, Tag } = SSR
 import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 
+export const dynamicParams = false;
+
 // Generate static params for all posts
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -18,9 +20,9 @@ export async function generateStaticParams() {
 export default async function PostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const post = await getPostBySlug(slug);
 
   if (!post) {
