@@ -1,0 +1,20 @@
+/* Hide the red placeholder box during drag */
+.react-grid-placeholder {
+  display: none !important;
+}
+
+/* Ensure all grid items fill their container height */
+.react-grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.react-grid-item > div {
+  height: 100%;
+  width: 100%;
+}
+
+/* Center the grid layout */
+.layout {
+  margin: 0 auto !important;
+}

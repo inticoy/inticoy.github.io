@@ -1,0 +1,45 @@
+import type { Metadata } from "next";
+import { Inter, Poppins } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { CommandMenu } from "@/components/command-menu";
+import { FloatingNav } from "@/components/layout/floating-navbar";
+
+const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: '--font-poppins'
+});
+
+export const metadata: Metadata = {
+  title: "Inticoy",
+  description: "Personal branding archive for Inticoy.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} ${poppins.variable} flex flex-col min-h-screen`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <CommandMenu />
+          <FloatingNav />
+          <div className="flex-grow">
+            {children}
+          </div>
+          <Footer />
+        </ThemeProvider>
+      </body>
+    </html>
+  );
+}
