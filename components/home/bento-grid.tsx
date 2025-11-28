@@ -114,6 +114,7 @@ export const BentoGrid = ({ className, children }: BentoGridProps) => {
           margin={GRID_MARGIN}
           containerPadding={[0, 0]}
           useCSSTransforms={mounted}
+          draggableCancel=".no-drag"
           // We remove 'layout' prop here to let data-grid take precedence
         >
           {childArray.map((child, index) => {

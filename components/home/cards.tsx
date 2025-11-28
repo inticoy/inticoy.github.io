@@ -10,6 +10,7 @@ import { motion } from 'framer-motion'
 import Map, { Marker } from 'react-map-gl/maplibre'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import { Post } from '@/lib/notion'
 
 export const ProfileCard = () => {
   return (
@@ -17,7 +18,7 @@ export const ProfileCard = () => {
       <div className="relative flex h-full flex-col justify-between gap-4 pr-2">
 		<Link 
 		  href="/posts?category=project" 
-		  className="absolute right-2 top-2 text-xs text-muted-foreground hover:text-foreground transition"
+		  className="absolute right-2 top-2 text-xs text-muted-foreground hover:text-foreground transition no-drag"
 		  >
             View all
           </Link>
@@ -44,7 +45,7 @@ export const ProfileCard = () => {
   )
 }
 
-export const ProjectsCard = () => {
+export const ProjectsCard = ({ posts = [] }: { posts?: Post[] }) => {
   return (
     <BentoItem id="projects" className="bg-card">
       <div className="flex h-full flex-col justify-between">
@@ -53,43 +54,65 @@ export const ProjectsCard = () => {
             <Code weight="bold" className="h-5 w-5 text-foreground" />
             <h3 className="text-lg font-semibold text-foreground">Projects</h3>
           </div>
-          <Link href="/posts?category=project" className="text-xs text-muted-foreground hover:text-foreground transition">
+          <Link href="/posts?category=project" className="text-xs text-muted-foreground hover:text-foreground transition no-drag">
             View all
           </Link>
         </div>
         
         <div className="flex flex-col gap-3 mt-2">
-          <div className="flex items-center justify-between border-b border-border/40 pb-2 last:border-0 last:pb-0">
-            <span className="text-sm font-medium text-foreground">Inticoy.io</span>
-            <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full">Live</span>
-          </div>
-          <div className="flex items-center justify-between border-b border-border/40 pb-2 last:border-0 last:pb-0">
-            <span className="text-sm font-medium text-foreground">SnapShoot</span>
-            <span className="text-[10px] bg-blue-500/10 text-blue-500 px-2 py-0.5 rounded-full">Beta</span>
-          </div>
+          {posts.length > 0 ? (
+            posts.slice(0, 3).map((post) => (
+              <Link 
+                key={post.id} 
+                href={`/posts/${post.slug}`}
+                className="flex items-center justify-between border-b border-border/40 pb-2 last:border-0 last:pb-0 group no-drag"
+              >
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">{post.title}</span>
+                <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full whitespace-nowrap ml-2">
+                  {post.status === 'Published' ? 'Live' : post.status}
+                </span>
+              </Link>
+            ))
+          ) : (
+            <p className="text-xs text-muted-foreground">No projects yet.</p>
+          )}
         </div>
       </div>
     </BentoItem>
   )
 }
 
-export const WritingCard = () => {
+export const WritingsCard = ({ posts = [] }: { posts?: Post[] }) => {
   return (
     <BentoItem id="writing" className="bg-card">
       <div className="flex h-full flex-col justify-between">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <PenNib weight="bold" className="h-5 w-5 text-foreground" />
-            <h3 className="text-lg font-semibold text-foreground">Writing</h3>
+            <h3 className="text-lg font-semibold text-foreground">Writings</h3>
           </div>
-          <Link href="/posts?category=writing" className="text-xs text-muted-foreground hover:text-foreground transition">
+          <Link href="/posts?category=writing" className="text-xs text-muted-foreground hover:text-foreground transition no-drag">
             View all
           </Link>
         </div>
         
-        <div className="mt-2">
-          <p className="text-sm font-medium text-foreground line-clamp-1">Decoding playful systems</p>
-          <p className="text-xs text-muted-foreground mt-1">2025.01.12</p>
+        <div className="flex flex-col gap-3 mt-2">
+          {posts.length > 0 ? (
+            posts.slice(0, 3).map((post) => (
+              <Link 
+                key={post.id} 
+                href={`/posts/${post.slug}`}
+                className="flex items-center justify-between border-b border-border/40 pb-2 last:border-0 last:pb-0 group no-drag"
+              >
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">{post.title}</span>
+                <span className="text-[10px] text-muted-foreground whitespace-nowrap ml-2">
+                  {new Date(post.publishedAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                </span>
+              </Link>
+            ))
+          ) : (
+            <p className="text-xs text-muted-foreground">No writings yet.</p>
+          )}
         </div>
       </div>
     </BentoItem>
@@ -97,7 +120,7 @@ export const WritingCard = () => {
 }
 
 export const TechStackCard = () => {
-  const stack = ['Next.js', 'React', 'TS', 'Node', 'Go', 'AWS']
+  const stack = ['Next.js', 'C++', 'Figma']
   
   return (
     <BentoItem id="tech" className="bg-card">
@@ -186,7 +209,7 @@ export const SpotifyCard = () => {
           href="https://music.apple.com/kr/playlist/year-2025/pl.u-Ymb00v0sgN16xjg" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="hover:opacity-80 transition-opacity" // 클릭 가능하다는 느낌을 주기 위한 효과 추가
+          className="hover:opacity-80 transition-opacity no-drag" // 클릭 가능하다는 느낌을 주기 위한 효과 추가
         >
             <p className="text-md font-medium text-foreground line-clamp-1">Now Playing</p>
             <p className="text-xs text-muted-foreground">Year 2025</p>
@@ -241,7 +264,7 @@ export const ThemeCard = () => {
     <BentoItem id="theme" className="bg-card flex items-center justify-center">
       <button
         onClick={toggleTheme}
-        className="flex h-full items-center justify-center"
+        className="flex h-full items-center justify-center no-drag"
         aria-label="Toggle theme"
       >
         <div className="relative flex h-10 w-18 items-center rounded-full bg-primary px-3">
