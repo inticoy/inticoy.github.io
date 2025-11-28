@@ -12,15 +12,8 @@ export default async function PostsPage() {
   const posts = allPosts.filter(post => post.category !== 'about');
 
   return (
-    <main className="min-h-screen p-8 md:p-24 bg-background">
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-foreground">Posts</h1>
-          <p className="text-muted-foreground">
-            Writing, projects, and thoughts.
-          </p>
-        </div>
-
+    <main className="min-h-screen mt-30 px-8 md:px-24 bg-background flex flex-col items-center">
+      <div className="w-full max-w-5xl">
         <Suspense fallback={<div>Loading filters...</div>}>
            <FilterBar />
            <FilteredPostList initialPosts={posts} />

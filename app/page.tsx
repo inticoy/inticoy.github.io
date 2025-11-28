@@ -3,7 +3,7 @@ import { ProfileCard, ProjectsCard, WritingCard, ThemeCard, SnapshootCard, TechS
 
 export default function Home() {
   return (
-    <main className="mt-24 md:mt-12 p-8 md:p-24 bg-background flex flex-col items-center">
+    <main className="mt-30 px-8 md:px-24 bg-background flex flex-col items-center">
       <BentoGrid className="w-full max-w-5xl">
         <ProfileCard key="profile" />
         <ThemeCard key="theme" />

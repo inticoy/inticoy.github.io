@@ -3,7 +3,7 @@
 import React from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { CategoryChip } from '@/components/ui/category-chip'
 
 export const FilterBar = () => {
   const searchParams = useSearchParams()
@@ -12,24 +12,18 @@ export const FilterBar = () => {
 
   return (
     <div className="flex flex-wrap gap-2 mb-8">
-      <Button 
-        variant={!currentCategory ? "default" : "outline"} 
-        size="sm" 
-        asChild
-        className="rounded-full"
-      >
-        <Link href="/posts">All</Link>
-      </Button>
+      <CategoryChip 
+        category="All" 
+        isActive={!currentCategory} 
+        href="/posts" 
+      />
       {categories.map((cat) => (
-        <Button
+        <CategoryChip
           key={cat}
-          variant={currentCategory === cat ? "default" : "outline"}
-          size="sm"
-          asChild
-          className="rounded-full capitalize"
-        >
-          <Link href={`/posts?category=${cat}`}>{cat}</Link>
-        </Button>
+          category={cat}
+          isActive={currentCategory === cat}
+          href={`/posts?category=${cat}`}
+        />
       ))}
     </div>
   )

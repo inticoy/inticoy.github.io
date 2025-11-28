@@ -1,6 +1,6 @@
 import { NotionAPI } from 'notion-client';
 import { ExtendedRecordMap } from 'notion-types';
-import { getDateValue, getTextContent } from 'notion-utils';
+import { getDateValue, getTextContent, defaultMapImageUrl } from 'notion-utils';
 
 export const notion = new NotionAPI({
   activeUser: process.env.NOTION_ACTIVE_USER,
@@ -66,8 +66,9 @@ export async function getAllPosts(): Promise<Post[]> {
       const category = getTextContent(getProperty('Category')) as Post['category'];
       const tags = getTextContent(getProperty('Tags'))?.split(',').map((t: string) => t.trim()) || [];
       const summary = getTextContent(getProperty('Summary'));
-      const thumbnailProperty = getProperty('Thumbnail');
-      const thumbnail = thumbnailProperty?.[0]?.[1]?.[0]?.[1] || undefined; // Extract URL from Notion file property
+      const thumbnailProperty = getProperty('Thumbnail') || getProperty('thumbnail');
+      const rawThumbnail = thumbnailProperty?.[0]?.[1]?.[0]?.[1];
+      const thumbnail = rawThumbnail ? defaultMapImageUrl(rawThumbnail, block) : undefined;
       const publishedAt = getDateValue(getProperty('Date'))?.start_date || new Date(block.created_time).toISOString();
       const isPinned = getProperty('isPinned')?.[0]?.[0] === 'Yes'; // Checkbox or Select 'Yes'
 

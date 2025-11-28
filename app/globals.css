@@ -80,8 +80,8 @@
   --muted-foreground: #7d8b93;
 
   /* 강조 색상 (hover 등) */
-  --accent: #7bd7d3;
-  --accent-foreground: #062021;
+  --accent: #798993;
+  --accent-foreground: #e7ebee;
 
   /* 에러/삭제 */
   --destructive: #bc161e;
@@ -119,8 +119,8 @@
   --muted-foreground: #9ca9b8;
 
   /* 강조 색상 (hover 등) */
-  --accent: #7bd7d3;
-  --accent-foreground: #041012;
+  --accent: #a8b4bd;
+  --accent-foreground: #2d3b43;
 
   /* 에러/삭제 */
   --destructive: #ff5134;
@@ -142,4 +142,38 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Hide Notion collection properties inside rendered posts */
+  .notion-renderer .notion-collection-page-properties {
+    display: none !important;
+  }
+
+  /* Make Notion content align with its container */
+  .notion-renderer,
+  .notion-renderer .notion,
+  .notion-renderer.notion-app {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: transparent !important;
+  }
+
+
+  /*.notion-renderer .notion-page-cover-wrapper*/
+  .notion-renderer .notion-header
+   {
+    display: none !important;
+  }
+
+  .notion-renderer .notion-page-icon-hero.notion-page-icon-span,
+  .notion-renderer .notion-page-icon-hero.notion-page-icon-image {
+    left: 0 !important;
+    margin-left: 1.5rem !important;
+    margin-right: auto !important;
+  }
+
+  /* .notion-page.notion-full-page{
+	margin-left: 4rem !important;
+	margin-right: 4rem !important;
+  } */
 }

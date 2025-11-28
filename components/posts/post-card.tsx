@@ -4,9 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Post } from '@/lib/notion'
-import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { CalendarBlank, Tag } from '@phosphor-icons/react'
+import { CalendarBlank } from '@phosphor-icons/react'
 
 interface PostCardProps {
   post: Post
@@ -40,15 +38,15 @@ export const PostCard = ({ post }: PostCardProps) => {
 
   return (
     <Link href={`/posts/${post.slug}`} className="block group">
-      <Card className="h-full overflow-hidden transition-all duration-200 border-border bg-card flex flex-col">
+      <div className="flex flex-col gap-3">
         {/* Thumbnail */}
-        <div className="relative w-full h-48 overflow-hidden bg-muted">
+        <div className="relative w-full aspect-video overflow-hidden rounded-xl bg-muted">
           {post.thumbnail ? (
             <Image
               src={post.thumbnail}
               alt={post.title}
               fill
-              className="object-cover transition-transform duration-200 group-hover:scale-105"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           ) : (
@@ -61,37 +59,44 @@ export const PostCard = ({ post }: PostCardProps) => {
         </div>
 
         {/* Content */}
-        <CardHeader className="p-4 md:p-6">
-          <div className="flex items-center justify-between mb-2">
-            <Badge variant="secondary" className="text-xs uppercase tracking-wider font-medium">
+        <div className="flex flex-col gap-2">
+          {/* Title */}
+          <h3 className="text-lg font-bold leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+            {post.title}
+          </h3>
+
+          {/* Metadata */}
+          <div className="flex items-center flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
+            {/* Category */}
+            <span className="font-medium text-foreground/80 capitalize">
               {post.category}
-            </Badge>
-            <div className="flex items-center text-xs text-muted-foreground">
+            </span>
+
+            <span className="text-muted-foreground/30">•</span>
+
+            {/* Date */}
+            <div className="flex items-center">
               <CalendarBlank className="w-3.5 h-3.5 mr-1" weight="fill" />
               {new Date(post.publishedAt).toLocaleDateString()}
             </div>
           </div>
-          <CardTitle className="text-xl font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-            {post.title}
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-4 md:p-6 pt-0 flex-grow">
-          <p className="text-sm text-muted-foreground line-clamp-3">
-            {post.summary || 'No summary available'}
-          </p>
-        </CardContent>
-        <CardFooter className="p-4 md:p-6 pt-0 flex flex-wrap gap-2">
-          {post.tags.slice(0, 3).map((tag) => (
-            <div key={tag} className="flex items-center text-xs text-muted-foreground bg-muted px-2 py-1 rounded-md">
-              <Tag className="w-3 h-3 mr-1" weight="fill" />
-              {tag}
+
+          {/* Tags */}
+          {post.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-1">
+              {post.tags.slice(0, 3).map((tag) => (
+                <div key={tag} className="flex items-center text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  <span className="opacity-50 mr-0.5">#</span>
+                  {tag}
+                </div>
+              ))}
+              {post.tags.length > 3 && (
+                <span className="text-xs text-muted-foreground">+{post.tags.length - 3}</span>
+              )}
             </div>
-          ))}
-          {post.tags.length > 3 && (
-            <span className="text-xs text-muted-foreground">+{post.tags.length - 3}</span>
           )}
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </Link>
   )
 }

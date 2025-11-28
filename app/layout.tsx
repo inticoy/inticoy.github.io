@@ -7,6 +7,8 @@ import { Footer } from "@/components/layout/footer";
 import { CommandMenu } from "@/components/command-menu";
 import { FloatingNav } from "@/components/layout/floating-navbar";
 
+import { getAllPosts } from "@/lib/notion";
+
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'],
@@ -19,11 +21,13 @@ export const metadata: Metadata = {
   description: "Personal branding archive for Inticoy.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = await getAllPosts();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} ${poppins.variable} flex flex-col min-h-screen`}>
@@ -32,7 +36,7 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <CommandMenu />
+          <CommandMenu posts={posts} />
           <FloatingNav />
           <div className="flex-grow">
             {children}
