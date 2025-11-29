@@ -43,6 +43,11 @@ const Modal = dynamic(
   }
 )
 
+// Optional: Collection (Database)
+const Collection = dynamic(() =>
+  import('react-notion-x/build/third-party/collection').then((m) => m.Collection)
+)
+
 const FALLBACK_PAGE_COVER_SVG = `
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480"></svg>
 `.trim()
@@ -157,7 +162,7 @@ export const NotionRenderer = ({ recordMap, fullPage = false, className, post }:
         defaultPageCover={DEFAULT_PAGE_COVER}
         components={{
           Code,
-          Collection: () => null,
+          Collection,
           Equation,
           Pdf,
           Modal,
