@@ -9,7 +9,7 @@ export default async function Home() {
   const writingPosts = posts.filter(p => p.category === 'writing');
 
   return (
-    <main className="mt-30 px-8 md:px-24 bg-background flex flex-col items-center">
+    <main className="mt-30 mb-8 px-8 md:px-24 bg-background flex flex-col items-center">
       <BentoGrid className="w-full max-w-5xl">
         <ProfileCard key="profile" />
         <ThemeCard key="theme" />

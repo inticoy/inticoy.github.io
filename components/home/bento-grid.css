@@ -18,3 +18,7 @@
 .layout {
   margin: 0 auto !important;
 }
+
+/* Jiggle Animation handled by Framer Motion now */
+/* Touch/Select styles handled by Tailwind classes (select-none, touch-manipulation) */
+
