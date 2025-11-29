@@ -11,7 +11,7 @@ export const FilterBar = () => {
   const categories = ['writing', 'project', 'note', 'life']
 
   return (
-    <div className="flex flex-wrap gap-2 mb-8">
+    <div className="flex flex-wrap gap-1.5 mb-8">
       <CategoryChip 
         category="All" 
         isActive={!currentCategory} 

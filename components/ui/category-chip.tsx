@@ -10,15 +10,18 @@ interface CategoryChipProps {
 }
 
 export function CategoryChip({ category, isActive, href, className }: CategoryChipProps) {
-  const variant = isActive === true ? "default" : isActive === false ? "outline" : "secondary"
+  // Use 'secondary' for unselected state instead of 'outline'
+  const variant = isActive === true ? "default" : "secondary"
   
   const content = (
     <Badge
       variant={variant}
       className={cn(
-        "rounded-full px-3 py-1 capitalize font-medium transition-colors",
+        "rounded-sm px-3 py-1 capitalize font-medium transition-colors",
         isActive === true && "hover:bg-primary/90",
-        isActive === false && "hover:bg-accent hover:text-accent-foreground",
+        // Unselected state: Light background (secondary) with foreground text
+        isActive === false && "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        // Static state (undefined): Same as unselected
         isActive === undefined && "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         className
       )}

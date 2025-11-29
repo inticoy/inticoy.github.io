@@ -72,8 +72,8 @@
   --primary-foreground: #e7ebee;
 
   /* 보조 색상 (배지 등) */
-  --secondary: #263b32;
-  --secondary-foreground: #e8e8f1;
+  --secondary: #e6e8ea;
+  --secondary-foreground: #2d3b43;
 
   /* 비활성/회색조 */
   --muted: #e3e8eb;
@@ -119,8 +119,8 @@
   --muted-foreground: #9ca9b8;
 
   /* 강조 색상 (hover 등) */
-  --accent: #a8b4bd;
-  --accent-foreground: #2d3b43;
+  --accent: #2d3b43;
+  --accent-foreground: #a8b4bd;
 
   /* 에러/삭제 */
   --destructive: #ff5134;
