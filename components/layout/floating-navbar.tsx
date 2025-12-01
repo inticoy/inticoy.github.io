@@ -192,7 +192,7 @@ export const FloatingNav = ({
                     onClick={() => setHoveredTab(navItem.link)} // Immediate feedback on click
                     >
                     {/* 아이콘 - 항상 표시 */}
-                    <span className="relative z-20">
+                    <span className={cn("relative z-20 transition-transform duration-200", isSelected && "scale-110")}>
                       {navItem.icon}
                     </span>
                     {/* 텍스트 - 웹에서만 표시 */}
@@ -205,7 +205,7 @@ export const FloatingNav = ({
                         <motion.span
                         layoutId="bubble"
                         className="absolute inset-0 bg-primary-foreground rounded-full z-10 border border-1.5 border-foreground/3"
-                        transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                     )}
                     </Link>
